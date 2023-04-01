@@ -10,7 +10,9 @@ function NavBar() {
         <li className='p-4 hover:text-purple-500'><Link to="/register">Register Profile</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/login">Sign In</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/addWorkout">AddWorkout</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/addWorkoutPlan">Add Workout Plan</Link></li>
+        <li className='p-4 hover:text-purple-500'><Link to="/updateWorkout">Update Workout</Link></li>
+        <li className='p-4 hover:text-purple-500'><Link to="/addPlan">Add Plan</Link></li>
+        <li className='p-4 hover:text-purple-500'><Link to="/updatePlan">Update Plan</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/editProfile">Edit Profile</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/home">Home</Link></li>

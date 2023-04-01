@@ -1,18 +1,18 @@
-const AddWorkout = () => {
+const UpdateWorkout = () => {
   return (
     <form>
       <div className="space-y-12">
         <div className="border-b border-white-900/10 pb-12 grid w-screen place-items-center">
           <h2 className="text-base font-semibold leading-7 text-purple-900">
-            Add a Workout!
+            Update Your Workout!
           </h2>
           <p className="mt-1 text-sm leading-6 text-white">
-            Add a workout for people to follow!
+            Use a permanent address where you can receive mail.
           </p>
-          <div className="overflow-hidden w-2/3 justify-items-center shadow sm:rounded-md y">
-            <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center">
-              <div className="mt-10 grid grid-cols-6 gap-x-4 gap-y-8 sm:grid-cols-5">
-                <div className="col-span-4 sm:col-span-3">
+          <div className="overflow-hidden shadow sm:rounded-md">
+            <div className="bg-white px-4 py-3 sm:p-4">
+              <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">
+                <div className="sm:col-span-3">
                   <label
                     htmlFor="country"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -33,7 +33,7 @@ const AddWorkout = () => {
                   </div>
                 </div>
 
-                <div className="col-span-5 sm:col-span-3">
+                <div className="sm:col-span-3">
                   <label
                     htmlFor="first-name"
                     className="block text-sm font-medium leading-6 text-white-900"
@@ -51,7 +51,7 @@ const AddWorkout = () => {
                   </div>
                 </div>
 
-                <div className="col-span-5 sm:col-span-3">
+                <div className="sm:col-span-3">
                   <label
                     htmlFor="last-name"
                     className="block text-sm font-medium leading-6 text-white-900"
@@ -68,7 +68,7 @@ const AddWorkout = () => {
                   </div>
                 </div>
 
-                <div className="col-span-5 sm:col-span-3">
+                <div className="sm:col-span-3">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium leading-6 text-white-900"
@@ -85,7 +85,7 @@ const AddWorkout = () => {
                   </div>
                 </div>
 
-                <div className="col-span-5 sm:col-span-3">
+                <div className="col-span-3">
                   <label
                     htmlFor="street-address"
                     className="block text-sm font-medium leading-6 text-white-900"
@@ -119,4 +119,4 @@ const AddWorkout = () => {
   )
 }
 
-export default AddWorkout
+export default UpdateWorkout

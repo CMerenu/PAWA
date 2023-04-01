@@ -1,4 +1,5 @@
 import React from 'react'
+import { PhotoIcon } from '@heroicons/react/24/solid'
 // import { RegisterUser } from '../services/Auth'
 // import { useNavigate } from 'react-router-dom'
 // import { useState } from 'react'
@@ -24,25 +25,32 @@ const RegisterProfile = () => {
           <div className="mt-5 md:col-span-2 md:mt-0">
             <form>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
-                <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-                  <div>
-                    <label
-                      htmlFor="img"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Image
-                      <input
-                        type="text"
-                        id="img"
-                        name="profilePic"
-                        rows={3}
-                        // onChange={handleChange}
-                        // onSubmit={handleSubmit}
-                        className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6"
-                        placeholder="place image here!"
-                        defaultValue={''}
+                <div className="col-span-full px-3 py-3 bg-white">
+                  <div className="mt-4 flex justify-center rounded-lg  bg-white border border-dashed border-gray-900/25 px-6 py-10">
+                    <div className="text-center ">
+                      <PhotoIcon
+                        className="mx-auto h-12 w-12 text-gray-300"
+                        aria-hidden="true"
                       />
-                    </label>
+                      <div className="mt-4 flex text-sm leading-6 text-gray-600">
+                        <label
+                          htmlFor="file-upload"
+                          className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+                        >
+                          <span>Upload a file</span>
+                          <input
+                            id="file-upload"
+                            name="file-upload"
+                            type="file"
+                            className="sr-only"
+                          />
+                        </label>
+                        <p className="pl-1">or drag and drop</p>
+                      </div>
+                      <p className="text-xs leading-5 text-gray-600">
+                        PNG, JPG, GIF up to 10MB
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -97,7 +105,7 @@ const RegisterProfile = () => {
                         // value={formValues.name}
                         // onChange={handleChange}
                         autoComplete="given-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -115,7 +123,7 @@ const RegisterProfile = () => {
                         // value={formValues.userName}
                         // onChange={handleChange}
                         autoComplete="family-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -133,7 +141,7 @@ const RegisterProfile = () => {
                         // value={formValues.email}
                         // onChange={handleChange}
                         autoComplete="email"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -151,7 +159,7 @@ const RegisterProfile = () => {
                         // value={formValues.userName}
                         // onChange={handleChange}
                         autoComplete="family-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -169,7 +177,7 @@ const RegisterProfile = () => {
                         // value={formValues.userName}
                         // onChange={handleChange}
                         autoComplete="family-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -187,7 +195,7 @@ const RegisterProfile = () => {
                         // value={formValues.password}
                         // onChange={handleChange}
                         autoComplete="password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                     <div className="col-span-6">
@@ -204,7 +212,7 @@ const RegisterProfile = () => {
                         // value={formValues.confirmPassword}
                         // onChange={handleChange}
                         autoComplete="password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
