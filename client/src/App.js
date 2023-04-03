@@ -102,7 +102,7 @@ function App() {
           />
           <Route
             path="/workoutDetails/:id"
-            element={<WorkoutDetails user={user} />}
+            element={<WorkoutDetails user={user} userInfo={userInfo} />}
           />
           <Route
             path="/planDetails/:id"

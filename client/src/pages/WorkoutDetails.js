@@ -10,33 +10,7 @@ const WorkoutDetails = ({ user, userInfo }) => {
 
   let navigate = useNavigate()
 
-  let initialState = {
-    name: '',
-    muscleGroup: '',
-    content: '',
-    image: ''
-  }
-
-  const [results, setResults] = useState(null)
   const [workoutDetails, setWorkoutDetails] = useState()
-  const [formValues, setFormValues] = useState(initialState)
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  // const clicky = (e, planId) => {
-  //   e.preventDefault()
-  //   if (!planId) {
-  //     setResults(null)
-  //   } else setResults(planId)
-  // }
-  // const antiClicky = (e) => {
-  //   e.preventDefault()
-  //   setResults(null)
-  // }
-  // const deleteComment = async (e, commentId) => {
-  //   e.preventDefault()
-  //   await Client.delete(`/delete/${commentId}`)
-  //   getWorkoutDetails()
-  // }
 
   const getWorkoutDetails = async () => {
     const res = await Client.get(`workout/find_workout/${id}`)
@@ -46,25 +20,6 @@ const WorkoutDetails = ({ user, userInfo }) => {
   console.log(workoutDetails)
   console.log(user)
   console.log(userInfo)
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault()
-  //   const details = {
-  //     name: formValues.name,
-  //     muscleGroup: formValues.muscleGroup,
-  //     content: formValues.content,
-  //     image: formValues.image,
-  //     userId: id
-  //     // planId: planId
-  //   }
-  //   await updateWorkout(details)
-  //   setFormValues(initialState)
-  //   navigate('/plan')
-  //   alert('Plan Updated!!')
-  // }
-  // const handleChange = (e) => {
-  //   setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  // }
   useEffect(() => {
     getWorkoutDetails()
   }, [user])
@@ -82,8 +37,13 @@ const WorkoutDetails = ({ user, userInfo }) => {
                   className="w-full h-64 object-cover rounded-lg shadow-md"
                 />
                 <div className="bg-white p-6 rounded-lg shadow-md mt-4">
+                  <p className="text-gray-700 font-bold text-xl mb-2">
+                    Muscle: {workoutDetails.muscleGroup}
+                  </p>
+                </div>
+                <div className="bg-white p-6 rounded-lg shadow-md mt-4">
                   <p className="text-gray-700 font-bold mb-2">
-                    {/* User Name:{userInfo.userName} */}
+                    {workoutDetails.content}
                   </p>
                 </div>
               </div>
