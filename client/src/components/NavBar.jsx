@@ -1,6 +1,7 @@
 import {React, useState }from 'react'
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import LoginButton from './Login/Logout'
+import NavUsername from './NavUsername'
 
 const NavBar = ({ user, userInfo, handleLogOut}) =>  {
   const [nav, setNav] = useState(false)
@@ -8,14 +9,17 @@ const NavBar = ({ user, userInfo, handleLogOut}) =>  {
   if (user) {
   userOptions = (
     <nav>
-      <img src={userInfo.profilePicture} />
+      <div>
+      <img src={user.profilePicture} />
+      <h3 text-white>{user.userName}</h3>
+      </div>
     <div className='flex justify-between bg-[#512a71] items-center h-16 max-w-[screen] mx-auto text-white'>
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
+        <NavUsername user={user} />
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>
-
         <li className='p-4 hover:text-purple-500'><Link to="/updateWorkout">Update Workout</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/updatePlan">Update Plan</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/profilePage">Profile Page</Link></li>
@@ -31,6 +35,7 @@ const publicOptions = (
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
         <LoginButton user={user} handleLogOut={handleLogOut} />
+        <NavUsername user={user} />
         <li className='p-4 hover:text-purple-500'><Link to="/home">Home</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>

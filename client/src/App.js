@@ -100,8 +100,14 @@ function App() {
               />
             }
           />
-          <Route path="/workoutDetails/:id" element={<WorkoutDetails />} />
-          <Route path="/planDetails/:id" element={<PlanDetails />} />
+          <Route
+            path="/workoutDetails/:id"
+            element={<WorkoutDetails user={user} />}
+          />
+          <Route
+            path="/planDetails/:id"
+            element={<PlanDetails user={user} userInfo={userInfo} />}
+          />
           <Route
             path="addWorkout"
             element={<AddWorkout user={user} userInfo={userInfo} />}
