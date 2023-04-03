@@ -54,22 +54,40 @@ function App() {
             path="login"
             element={<Login setUser={setUser} setUserInfo={setUserInfo} />}
           />
-          <Route path="workout" element={<Workout />} />
+          <Route
+            path="workout"
+            element={<Workout user={user} userInfo={userInfo} />}
+          />
           <Route
             path="plan"
             element={<Plan user={user} userInfo={userInfo} />}
           />
-          <Route path="addWorkout" element={<AddWorkout />} />
-          <Route path="updateWorkout" element={<UpdateWorkout />} />
+          <Route
+            path="addWorkout"
+            element={<AddWorkout user={user} userInfo={userInfo} />}
+          />
+          <Route
+            path="updateWorkout"
+            element={<UpdateWorkout user={user} userInfo={userInfo} />}
+          />
           <Route path="addPlan" element={<AddPlan userInfo={userInfo} />} />
-          <Route path="updatePlan" element={<UpdatePlan />} />
+          <Route
+            path="updatePlan"
+            element={<UpdatePlan user={user} userInfo={userInfo} />}
+          />
           <Route
             path="dashboard"
             element={<DashBoard userInfo={userInfo} user={user} />}
           />
           <Route
             path="editProfile"
-            element={<EditProfile userInfo={userInfo} user={user} />}
+            element={
+              <EditProfile
+                userInfo={userInfo}
+                user={user}
+                handleLogOut={handleLogOut}
+              />
+            }
           />
           <Route path="home" element={<Home />} />
           <Route

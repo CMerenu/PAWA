@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import { PhotoIcon } from '@heroicons/react/24/solid'
 
-const EditProfile = ({ user, userInfo }) => {
+const EditProfile = ({ user, userInfo, handleLogOut }) => {
   let { id } = useParams()
 
   let navigate = useNavigate()
@@ -24,6 +24,13 @@ const EditProfile = ({ user, userInfo }) => {
 
   const [formValues, setFormValues] = useState(initialState)
 
+  const handleDelete = async (event) => {
+    event.preventDefault()
+    handleLogOut()
+    await Client.delete(`user/delete_user/${userInfo.id}`)
+    alert('users account was deleted, please make another user!')
+    navigate('/makeProfile')
+  }
   const getUserById = async () => {
     const res = await Client.get(`/user/get_user/${id}`)
     console.log(res.data)
@@ -284,6 +291,14 @@ const EditProfile = ({ user, userInfo }) => {
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
                     type="submit"
+                    onClick={handleDelete}
+                    className="inline-flex justify-center rounded-md bg-[#cd2525] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                  >
+                    Delete Profile
+                  </button>
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
                     className="inline-flex justify-center rounded-md bg-[#4d2896] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
                     Save

@@ -13,7 +13,7 @@ export const SignInUser = async (data) => {
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post('auth/register', data)
+    const res = await Client.post('/auth/register', data)
     return res.data
   } catch (error) {
     throw error
@@ -22,7 +22,7 @@ export const RegisterUser = async (data) => {
 
 export const UpdateUser = async (data) => {
   try {
-    await Client.put(`user/update_user/by_id/${data.userId}`, data)
+    await Client.put(`/user/update_user/by_id/${data.userId}`, data)
   } catch (error) {
     throw error
   }
@@ -40,6 +40,15 @@ export const CheckSession = async () => {
 export const GetUser = async (data) => {
   try {
     const res = await Client.get(`/get_user/${data.userId}`, data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const AddWork = async (data) => {
+  try {
+    const res = await Client.post('/create_workout', data)
     return res.data
   } catch (error) {
     throw error

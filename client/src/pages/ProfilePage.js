@@ -51,7 +51,10 @@ const ProfilePage = ({ handleLogOut, userInfo }) => {
                 {userInfo.city}, {userInfo.state}
               </span>
 
-              <button className="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">
+              <button
+                onClick={() => navigate('/editProfile')}
+                className="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded"
+              >
                 Edit Profile
               </button>
             </div>
