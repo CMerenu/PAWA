@@ -15,6 +15,8 @@ import UpdateWorkout from './pages/UpdateWorkout'
 import UpdatePlan from './pages/UpdatePlan'
 import Plan from './pages/Plan'
 import Workout from './pages/Workouts'
+import WorkoutDetails from './pages/WorkoutDetails'
+import PlanDetails from './pages/PlanDetails'
 import { useState, useEffect } from 'react'
 import { CheckSession } from '../src/services/Auth'
 import Client from './services/api'
@@ -98,6 +100,8 @@ function App() {
               />
             }
           />
+          <Route path="/workoutDetails/:id" element={<WorkoutDetails />} />
+          <Route path="/planDetails/:id" element={<PlanDetails />} />
           <Route
             path="addWorkout"
             element={<AddWorkout user={user} userInfo={userInfo} />}
