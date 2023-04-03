@@ -1,4 +1,22 @@
-const AddWorkout = () => {
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import React from 'react'
+
+const AddWorkout = (userInfo) => {
+  const userName = userInfo.userName
+  console.log(userName)
+  const userId = userInfo.id
+
+  let navigate = useNavigate()
+  let initialState = {
+    userName: userName,
+    name: '',
+    goal: '',
+    content: '',
+    day: '',
+    userId: userId
+  }
+
   return (
     <form>
       <div className="space-y-12">

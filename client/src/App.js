@@ -13,6 +13,8 @@ import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
 import UpdateWorkout from './pages/UpdateWorkout'
 import UpdatePlan from './pages/UpdatePlan'
+import Plan from './pages/Plan'
+import Workout from './pages/Workouts'
 import { useState, useEffect } from 'react'
 import { CheckSession } from '../src/services/Auth'
 
@@ -44,13 +46,18 @@ function App() {
   }
   return (
     <div className="App">
-      <NavBar user={user} handleLogOut={handleLogOut} />
+      <NavBar user={user} userInfo={userInfo} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="register" element={<RegisterProfile />} />
           <Route
             path="login"
             element={<Login setUser={setUser} setUserInfo={setUserInfo} />}
+          />
+          <Route path="workout" element={<Workout />} />
+          <Route
+            path="plan"
+            element={<Plan user={user} userInfo={userInfo} />}
           />
           <Route path="addWorkout" element={<AddWorkout />} />
           <Route path="updateWorkout" element={<UpdateWorkout />} />

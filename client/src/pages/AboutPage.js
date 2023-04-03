@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 const AboutPage = () => {
   return (
-    <div className="w-full l-full py-[1rem] px-4 bg-[#ffffff] text-black">
+    <div className="w-full l-full py-[1rem] px-4 text-black">
       <div className="text-left text-4xl pb-[2rem]">
         <h1 className="text-3xl text-black-500">About Page</h1>
       </div>
