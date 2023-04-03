@@ -54,7 +54,7 @@ function App() {
           />
           <Route path="addWorkout" element={<AddWorkout />} />
           <Route path="updateWorkout" element={<UpdateWorkout />} />
-          <Route path="addPlan" element={<AddPlan />} />
+          <Route path="addPlan" element={<AddPlan userInfo={userInfo} />} />
           <Route path="updatePlan" element={<UpdatePlan />} />
           <Route
             path="dashboard"

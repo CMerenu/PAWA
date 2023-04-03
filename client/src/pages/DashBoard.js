@@ -1,9 +1,9 @@
-const DashBoard = ({ user }) => {
+const DashBoard = ({ user, userInfo }) => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 color-white">
       <div className="border-b border-white-900/10 pb-12">
-        <h1>DashBoard</h1>
-        <h3>Hello, user</h3>
+        <h1 className="text-xl uppercase">DashBoard</h1>
+        <h3>Hello, {userInfo.userName}</h3>
       </div>
     </div>
   )

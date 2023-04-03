@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import { PhotoIcon } from '@heroicons/react/24/solid'
 
-const EditProfile = ({ userInfo }) => {
+const EditProfile = ({ user, userInfo }) => {
   let { id } = useParams()
 
   let navigate = useNavigate()
@@ -55,9 +55,9 @@ const EditProfile = ({ userInfo }) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
   return (
-    <div className="px-4 py-3 h-screen">
+    <div className="px-4 py-3 h-full">
       <div>
-        <h1 className="text-white text-3xl flex justify-center py-3 font-bold">
+        <h1 className="text-white text-5xl flex justify-center py-3 font-bold">
           Edit your Profile
         </h1>
         <div className="md:grid md:grid-cols-3 md:gap-6">
@@ -136,7 +136,7 @@ const EditProfile = ({ userInfo }) => {
             </div>
           </div>
           <div className="mt-5 md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
+            <form onSubmit={handleSubmit}>
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -154,6 +154,7 @@ const EditProfile = ({ userInfo }) => {
                         value={formValues.firstName}
                         onChange={handleChange}
                         autoComplete="given-name"
+                        placeholder={userInfo.name}
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -171,7 +172,6 @@ const EditProfile = ({ userInfo }) => {
                         id="lastName"
                         value={formValues.lastName}
                         onChange={handleChange}
-                        autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -189,7 +189,6 @@ const EditProfile = ({ userInfo }) => {
                         id="userName"
                         value={formValues.userName}
                         onChange={handleChange}
-                        autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -207,7 +206,6 @@ const EditProfile = ({ userInfo }) => {
                         id="email"
                         value={formValues.email}
                         onChange={handleChange}
-                        autoComplete="email"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -225,7 +223,6 @@ const EditProfile = ({ userInfo }) => {
                         id="city"
                         value={formValues.userName}
                         onChange={handleChange}
-                        autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>

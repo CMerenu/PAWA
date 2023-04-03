@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 const AboutPage = () => {
   return (
     <div className="w-full l-full py-[1rem] px-4 bg-[#ffffff] text-black">
@@ -15,11 +16,8 @@ const AboutPage = () => {
           interface, Lakas allows you to create a personalized workout plan that
           breaks downs your fitness journey day by day!
         </p>
-        <button
-          ahref="/makeProfile"
-          className="bg-[#512a71] w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-white justify-self-center"
-        >
-          Register Now!
+        <button className="bg-[#512a71] w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-white justify-self-center">
+          <NavLink to="/register">Register!</NavLink>
         </button>
       </div>
     </div>

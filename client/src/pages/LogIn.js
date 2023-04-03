@@ -35,16 +35,16 @@ const Login = ({ setUser, setUserInfo }) => {
       <div className="w-full h-screen max-w-md space-y-8">
         <div>
           <img className="mx-auto h-12 w-auto" src="" alt="Your Company" />
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            Sign in to your account
+          <h2 className="mt-6 text-center text-5xl font-bold tracking-tight text-gray-900">
+            Log in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
             <a
               href="/register"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
+              className="font-large text-xl text-white hover:text-purple-400"
             >
-              create an account
+              create an account!
             </a>
           </p>
         </div>
@@ -87,7 +87,7 @@ const Login = ({ setUser, setUserInfo }) => {
 
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <input
+              {/* <input
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
@@ -98,24 +98,24 @@ const Login = ({ setUser, setUserInfo }) => {
                 className="ml-2 block text-sm text-gray-900"
               >
                 Remember me
-              </label>
+              </label> */}
             </div>
 
-            <div className="text-sm">
+            {/* <div className="text-sm">
               <a
                 href="#"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 Forgot your password?
               </a>
-            </div>
+            </div> */}
           </div>
 
           <div>
             <button
               type="submit"
               onClick={handleSubmit}
-              className="group relative flex w-full justify-center rounded-md bg-purple-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="group relative flex w-full justify-center rounded-md bg-purple-600 py-2 px-3 text-m font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <LockClosedIcon
