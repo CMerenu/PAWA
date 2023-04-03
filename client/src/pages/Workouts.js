@@ -2,38 +2,27 @@ import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 
-const Workout = ({ user }) => {
+const Workout = ({ user, getAllWorkouts, setWorkouts, workouts }) => {
   let navigate = useNavigate()
-
-  const [workouts, setWorkouts] = useState([])
-  const GetAllWorkouts = async () => {
-    try {
-      const res = await Client.get('/workout/find_workout')
-      console.log(res)
-      setWorkouts(res.data)
-    } catch (error) {
-      throw error
-    }
-  }
   console.log(workouts)
 
   useEffect(() => {
-    GetAllWorkouts()
+    getAllWorkouts()
   }, [])
   return user ? (
     <div>
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {workouts.map((workout) => (
-          <div
-            className="flex-nowrap py-5 hidden w-100 lg:flex"
-            key={workout.id}
-          >
-            <div>
-              <img className="flex px-4" src={workout.image} alt="plan" />
+          <div className="flex-nowrap py-5 w-100 lg:flex " key={workout.id}>
+            <div className="">
+              <img className="flex px-4" src={workout.image} alt="Workout" />
               <h3>{workout.name}</h3>
               <h4>{workout.muscleGroup}</h4>
               <p className="font-medium">{workout.content}...</p>
             </div>
+            <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              Delete
+            </button>
           </div>
         ))}
       </div>

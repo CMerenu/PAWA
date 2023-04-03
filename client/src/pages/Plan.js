@@ -1,35 +1,27 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import Client from '../services/api'
 import { useEffect, useState } from 'react'
 
-const Plan = ({ user }) => {
+const Plan = ({ user, plans, getAllPlans }) => {
   let navigate = useNavigate()
 
-  const [plans, setPlans] = useState([])
-  const GetAllPlans = async () => {
-    try {
-      const res = await Client.get('/plan/get_plans')
-      console.log(res)
-      setPlans(res.data)
-    } catch (error) {
-      throw error
-    }
-  }
   console.log(plans)
 
   useEffect(() => {
-    GetAllPlans()
+    getAllPlans()
   }, [])
   return user ? (
     <div>
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {plans.map((plan) => (
-          <div className="flex-nowrap py-5 hidden w-100 lg:flex" key={plan.id}>
+          <div className="flex-nowrap py-5 w-100 lg:flex" key={plan.id}>
             <div>
               <img className="flex px-4" src={plan.image} alt="plan" />
               <h3>{plan.name}</h3>
               <p className="font-medium">{plan.content}...</p>
             </div>
+            <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              Delete
+            </button>
           </div>
         ))}
       </div>

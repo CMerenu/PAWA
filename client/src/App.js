@@ -17,11 +17,13 @@ import Plan from './pages/Plan'
 import Workout from './pages/Workouts'
 import { useState, useEffect } from 'react'
 import { CheckSession } from '../src/services/Auth'
+import Client from './services/api'
 
 function App() {
   const [user, setUser] = useState(null)
   const [userInfo, setUserInfo] = useState({})
-  // const [planInfo, setPlanInfo;] = useState({})
+  const [plans, setPlans] = useState([])
+  const [workouts, setWorkouts] = useState([])
 
   console.log(userInfo)
 
@@ -39,6 +41,24 @@ function App() {
     }
   }, [])
 
+  const getAllPlans = async () => {
+    try {
+      const res = await Client.get('/plan/get_plans')
+      console.log(res)
+      setPlans(res.data)
+    } catch (error) {
+      throw error
+    }
+  }
+  const getAllWorkouts = async () => {
+    try {
+      const res = await Client.get('/workout/find_workouts')
+      console.log(res)
+      setWorkouts(res.data)
+    } catch (error) {
+      throw error
+    }
+  }
   const handleLogOut = () => {
     setUser(null)
     localStorage.clear()
@@ -56,11 +76,27 @@ function App() {
           />
           <Route
             path="workout"
-            element={<Workout user={user} userInfo={userInfo} />}
+            element={
+              <Workout
+                user={user}
+                getAllWorkouts={getAllWorkouts}
+                userInfo={userInfo}
+                workouts={workouts}
+                setWorkouts={setWorkouts}
+              />
+            }
           />
           <Route
             path="plan"
-            element={<Plan user={user} userInfo={userInfo} />}
+            element={
+              <Plan
+                user={user}
+                getAllPlans={getAllPlans}
+                plans={plans}
+                setPlans={setPlans}
+                userInfo={userInfo}
+              />
+            }
           />
           <Route
             path="addWorkout"
