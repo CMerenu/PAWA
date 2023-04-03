@@ -113,12 +113,12 @@ function App() {
             element={<AddWorkout user={user} userInfo={userInfo} />}
           />
           <Route
-            path="updateWorkout"
+            path="/updateWorkout/:id"
             element={<UpdateWorkout user={user} userInfo={userInfo} />}
           />
           <Route path="addPlan" element={<AddPlan userInfo={userInfo} />} />
           <Route
-            path="updatePlan"
+            path="/updatePlan/:id"
             element={<UpdatePlan user={user} userInfo={userInfo} />}
           />
           <Route

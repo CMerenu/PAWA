@@ -1,7 +1,8 @@
 import {React, useState }from 'react'
 import { Link, NavLink } from "react-router-dom"
-import LoginButton from './Login/Logout'
+import LoginButton from './Logout'
 import NavUsername from './NavUsername'
+import Dropdown from './Dropdown'
 
 const NavBar = ({ user, userInfo, handleLogOut}) =>  {
   const [nav, setNav] = useState(false)
@@ -17,6 +18,7 @@ const NavBar = ({ user, userInfo, handleLogOut}) =>  {
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
         <NavUsername user={user} />
+        <li><Dropdown /></li>
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>

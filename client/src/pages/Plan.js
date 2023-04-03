@@ -12,7 +12,7 @@ const Plan = ({ user, plans, getAllPlans }) => {
   }, [])
   return user ? (
     <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 h-full sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {plans.map((plan) => (
           <Link to={`/planDetails/${plan.id}`} key={plan.id}>
             <div className="flex-nowrap py-5 w-100 lg:flex" key={plan.id}>

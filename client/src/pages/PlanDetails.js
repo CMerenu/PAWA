@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
-import WorkoutDetails from './WorkoutDetails'
+import { Link } from 'react-router-dom'
 
 const PlanDetails = ({ user, userInfo }) => {
   let { id } = useParams()
@@ -42,9 +42,14 @@ const PlanDetails = ({ user, userInfo }) => {
                   </p>
                 </div>
               </div>
-              <button className="bg-white p-6 rounded-lg shadow-md mt-4">
+              <button className="bg-white p-2 rounded-sm shadow-md mt-4">
                 Add Plan to DashBoard
               </button>
+              <Link to={`/updatePlan/${planDetails.id}`} key={planDetails.id}>
+                <button className="bg-white p-2 rounded-sm shadow-md mt-4">
+                  Update Plan
+                </button>
+              </Link>
               <div className="md:w-1/2 lg:w-2/3 mt-4 md:mt-0"></div>
             </div>
           </div>
