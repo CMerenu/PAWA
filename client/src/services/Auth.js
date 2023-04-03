@@ -37,3 +37,11 @@ export const CheckSession = async () => {
     throw error
   }
 }
+export const GetUser = async (data) => {
+  try {
+    const res = await Client.get(`/get_user/${data.userId}`, data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

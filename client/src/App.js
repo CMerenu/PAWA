@@ -13,49 +13,68 @@ import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
 import UpdateWorkout from './pages/UpdateWorkout'
 import UpdatePlan from './pages/UpdatePlan'
-// import { useState, useEffect } from 'react'
-// import { CheckSession } from '../src/services/Auth'
+import { useState, useEffect } from 'react'
+import { CheckSession } from '../src/services/Auth'
 
 function App() {
-  // const [user, setUser] = useState(null)
-  // const [userInfo, setUserInfo] = useState({})
+  const [user, setUser] = useState(null)
+  const [userInfo, setUserInfo] = useState({})
+  // const [planInfo, setPlanInfo;] = useState({})
 
-  // console.log(userInfo)
+  console.log(userInfo)
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
-  // const checkToken = async () => {
-  //   const userCS = await CheckSession()
-  //   setUser(userCS)
-  // }
+  const checkToken = async () => {
+    const userCS = await CheckSession()
+    setUser(userCS)
+  }
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token')
-  //   if (token) {
-  //     checkToken()
-  //   }
-  // }, [])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
-  // const handleLogOut = () => {
-  //   setUser(null)
-  //   localStorage.clear()
-  //   navigate('/')
-
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+    navigate('/register')
+  }
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="register" element={<RegisterProfile />} />
-          <Route path="login" element={<Login />} />
+          <Route
+            path="login"
+            element={<Login setUser={setUser} setUserInfo={setUserInfo} />}
+          />
           <Route path="addWorkout" element={<AddWorkout />} />
           <Route path="updateWorkout" element={<UpdateWorkout />} />
           <Route path="addPlan" element={<AddPlan />} />
           <Route path="updatePlan" element={<UpdatePlan />} />
-          <Route path="dashboard" element={<DashBoard />} />
-          <Route path="editProfile" element={<EditProfile />} />
+          <Route
+            path="dashboard"
+            element={<DashBoard userInfo={userInfo} user={user} />}
+          />
+          <Route
+            path="editProfile"
+            element={<EditProfile userInfo={userInfo} user={user} />}
+          />
           <Route path="home" element={<Home />} />
-          <Route path="profilePage" element={<ProfilePage />} />
+          <Route
+            path="profilePage"
+            element={
+              <ProfilePage
+                userInfo={userInfo}
+                user={user}
+                handleLogOut={handleLogOut}
+              />
+            }
+          />
           <Route path="about" element={<AboutPage />} />
         </Routes>
       </main>

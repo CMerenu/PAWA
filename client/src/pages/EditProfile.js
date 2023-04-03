@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Client from '../services/api'
 import { PhotoIcon } from '@heroicons/react/24/solid'
 
-const EditProfile = () => {
+const EditProfile = ({ userInfo }) => {
   let { id } = useParams()
 
   let navigate = useNavigate()
@@ -58,7 +58,7 @@ const EditProfile = () => {
     <div className="px-4 py-3 h-screen">
       <div>
         <h1 className="text-white text-3xl flex justify-center py-3 font-bold">
-          Edit Profile
+          Edit your Profile
         </h1>
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
@@ -145,15 +145,33 @@ const EditProfile = () => {
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Name
+                        First Name
                       </label>
                       <input
                         type="text"
                         name="name"
                         id="name"
-                        // value={formValues.name}
-                        // onChange={handleChange}
+                        value={formValues.firstName}
+                        onChange={handleChange}
                         autoComplete="given-name"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="last-name"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        value={formValues.lastName}
+                        onChange={handleChange}
+                        autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -169,14 +187,14 @@ const EditProfile = () => {
                         type="text"
                         name="userName"
                         id="userName"
-                        // value={formValues.userName}
-                        // onChange={handleChange}
+                        value={formValues.userName}
+                        onChange={handleChange}
                         autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-4">
+                    <div className="col-span-6 sm:col-span-3">
                       <label
                         htmlFor="email-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
@@ -187,8 +205,8 @@ const EditProfile = () => {
                         type="text"
                         name="email"
                         id="email"
-                        // value={formValues.email}
-                        // onChange={handleChange}
+                        value={formValues.email}
+                        onChange={handleChange}
                         autoComplete="email"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
@@ -205,8 +223,8 @@ const EditProfile = () => {
                         type="text"
                         name="city"
                         id="city"
-                        // value={formValues.userName}
-                        // onChange={handleChange}
+                        value={formValues.userName}
+                        onChange={handleChange}
                         autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
@@ -223,8 +241,8 @@ const EditProfile = () => {
                         type="text"
                         name="state"
                         id="state"
-                        // value={formValues.userName}
-                        // onChange={handleChange}
+                        value={formValues.state}
+                        onChange={handleChange}
                         autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
@@ -241,8 +259,8 @@ const EditProfile = () => {
                         type="text"
                         name="password"
                         id="password"
-                        // value={formValues.password}
-                        // onChange={handleChange}
+                        value={formValues.password}
+                        onChange={handleChange}
                         autoComplete="password"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
@@ -258,8 +276,8 @@ const EditProfile = () => {
                         type="text"
                         name="confirmPassword"
                         id="password"
-                        // value={formValues.confirmPassword}
-                        // onChange={handleChange}
+                        value={formValues.confirmPassword}
+                        onChange={handleChange}
                         autoComplete="password"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />

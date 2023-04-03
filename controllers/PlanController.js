@@ -1,8 +1,8 @@
-const { Plans } = require('../models')
+const { Plan } = require('../models')
 
 const GetAllPlan = async (req, res) => {
   try {
-    const data = await Plans.findAll()
+    const data = await Plan.findAll()
     res.send(data)
   } catch (error) {
     throw error
@@ -13,7 +13,7 @@ const GetPlanById = async (req, res) => {
   try {
     let id = req.params.id
     console.log(id)
-    const data = await Plans.findByPk(id)
+    const data = await Plan.findByPk(id)
     res.send(data)
   } catch (error) {
     throw error
@@ -23,7 +23,7 @@ const GetPlanById = async (req, res) => {
 const GetPlanByUserId = async (req, res) => {
   try {
     const userId = req.params.user_id
-    const data = await Post.findAll({ where: { userId: userId } })
+    const data = await Plan.findAll({ where: { userId: userId } })
     res.send(data)
   } catch (error) {
     throw error
@@ -35,7 +35,7 @@ const CreatePlan = async (req, res) => {
     const planBody = {
       ...req.body
     }
-    let planCreate = await Post.create(planBody)
+    let planCreate = await Plan.create(planBody)
     res.send(planCreate)
   } catch (error) {
     throw error
@@ -45,7 +45,7 @@ const CreatePlan = async (req, res) => {
 const UpdatePlan = async (req, res) => {
   try {
     const planId = parseInt(req.params.planId)
-    let updatedPlan = await Plans.update(req.body, {
+    let updatedPlan = await Plan.update(req.body, {
       where: { id: planId },
       returning: true
     })
@@ -58,7 +58,7 @@ const UpdatePlan = async (req, res) => {
 const DeletePlan = async (req, res) => {
   try {
     let planId = parseInt(req.params.planId)
-    await Plans.destroy({ where: { id: planId } })
+    await Plan.destroy({ where: { id: planId } })
     res.send({ message: `Deleted Plan with an id of ${planId}` })
   } catch (error) {
     throw error

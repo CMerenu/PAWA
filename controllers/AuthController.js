@@ -7,13 +7,13 @@ const Register = async (req, res) => {
       req.body
     let passwordDigest = await middleware.hashPassword(password)
     const data = await User.create({
-      email,
-      passwordDigest,
       firstName,
       lastName,
+      email,
+      userName,
+      passwordDigest,
       city,
-      state,
-      userName
+      state
     })
     res.send(data)
   } catch (error) {
@@ -38,7 +38,7 @@ const Login = async (req, res) => {
         password: data.passwordDigest
       }
 
-      let token = middleware.createTokenExpiring(payload)
+      let token = middleware.createToken(payload)
       return res.send({ data: payload, token })
     }
     res.status(401).send({ status: 'Error', msg: 'Incorrect Password' })

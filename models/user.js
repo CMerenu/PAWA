@@ -31,10 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
-      passwordDigest: {
-        allowNull: false,
-        type: DataTypes.STRING
-      },
       userName: {
         allowNull: false,
         type: DataTypes.STRING
@@ -47,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: DataTypes.STRING
       },
+      passwordDigest: {
+        allowNull: false,
+        type: DataTypes.STRING
+      },
       profileImage: {
         allowNull: true,
         type: DataTypes.STRING
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: 'User',
-      tableName: 'users'
+      tableName: 'Users'
     }
   )
   return User

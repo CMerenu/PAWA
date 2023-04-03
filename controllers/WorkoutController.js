@@ -40,7 +40,7 @@ const UpdateWorkout = async (req, res) => {
   try {
     let id = req.params.workout_id
     let updatedWorkout = req.body
-    const data = await Comment.update(
+    const data = await Workout.update(
       {
         name: updatedWorkout.name,
         muscleGroup: updatedWorkout.muscleGroup,

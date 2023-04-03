@@ -18,9 +18,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      password: {
-        type: Sequelize.STRING
-      },
       userName: {
         type: Sequelize.STRING
       },
@@ -28,6 +25,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       state: {
+        type: Sequelize.STRING
+      },
+      passwordDigest: {
         type: Sequelize.STRING
       },
       profileImage: {

@@ -5,6 +5,42 @@ import { PhotoIcon } from '@heroicons/react/24/solid'
 // import { useState } from 'react'
 
 const RegisterProfile = () => {
+  // let navigate = useNavigate()
+
+  // let initialState = {
+  //   firstName: '',
+  //   lastName: '',
+  //   userName: '',
+  //   city: '',
+  //   state: '',
+  //   email: '',
+  //   profileImage: '',
+  //   password: '',
+  //   confirmPassword: ''
+  // }
+
+  // const [formValues, setFormValues] = useState(initialState)
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault()
+  //   await RegisterUser({
+  //     firstName: formValues.firstName,
+  //     lastName: formValues.lastName,
+  //     userName: formValues.userName,
+  //     profileImage: formValues.profileImage,
+  //     city: formValues.city,
+  //     state: formValues.state,
+  //     email: formValues.email,
+  //     password: formValues.password
+  //   })
+  //   setFormValues(initialState)
+  //   navigate('/login')
+  // }
+
+  // const handleChange = (e) => {
+  //   setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  // }
+
   return (
     <div className="px-4 py-3 h-screen">
       <div>
@@ -96,15 +132,33 @@ const RegisterProfile = () => {
                         htmlFor="first-name"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
-                        Name
+                        First Name
                       </label>
                       <input
                         type="text"
                         name="name"
                         id="name"
-                        // value={formValues.name}
+                        // value={formValues.firstName}
                         // onChange={handleChange}
                         autoComplete="given-name"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="last-name"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
+                        Last Name
+                      </label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        // value={formValues.lastName}
+                        // onChange={handleChange}
+                        autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -127,7 +181,7 @@ const RegisterProfile = () => {
                       />
                     </div>
 
-                    <div className="col-span-6 sm:col-span-4">
+                    <div className="col-span-6 sm:col-span-3">
                       <label
                         htmlFor="email-address"
                         className="block text-sm font-medium leading-6 text-gray-900"

@@ -1,4 +1,4 @@
-const DashBoard = () => {
+const DashBoard = ({ user }) => {
   return (
     <div className="space-y-12">
       <div className="border-b border-white-900/10 pb-12">

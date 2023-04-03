@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -18,11 +18,14 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
-      likeCount: {
-        type: Sequelize.INTEGER
-      },
       image: {
         type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        field: 'userId',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -32,9 +35,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Plans');
+    await queryInterface.dropTable('Plans')
   }
-};
+}
