@@ -18,7 +18,16 @@ const AddWorkout = ({ userInfo }) => {
     day: '',
     userId: userId
   }
-
+  const [workouts, setWorkouts] = useState([])
+  const GetAllWorkouts = async () => {
+    try {
+      const res = await Client.get('/workout/find_workout')
+      console.log(res)
+      setWorkouts(res.data)
+    } catch (error) {
+      throw error
+    }
+  }
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
@@ -49,8 +58,8 @@ const AddWorkout = ({ userInfo }) => {
             Add a workout for people to follow!
           </p>
           <div className="overflow-hidden w-2/3 justify-items-center shadow sm:rounded-md y">
-            <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center">
-              <div className="mt-10 grid grid-cols-6 gap-x-4 gap-y-8 sm:grid-cols-5">
+            <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center w-41">
+              <div className="mt-5 grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5">
                 <div className="col-span-4 sm:col-span-3">
                   <label
                     htmlFor="country"

@@ -68,7 +68,7 @@ const PlanDetails = ({ user, userInfo }) => {
                       </button>
                     </Link>
                     <button
-                      className="bg-red-700 text-white font-semibold sp-2 rounded-sm shadow-md mt-4 my-3"
+                      className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
                       onClick={() => deletePlan(planDetails.id)}
                     >
                       Delete

@@ -29,10 +29,10 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
     handleLogOut()
     await Client.delete(`user/delete_user/${userInfo.id}`)
     alert('users account was deleted, please make another user!')
-    navigate('/makeProfile')
+    navigate('/register')
   }
   const getUserById = async () => {
-    const res = await Client.get(`/user/get_user/${id}`)
+    const res = await Client.get(`/user/get_user/${userInfo.id}`)
     console.log(res.data)
     setFormValues(res.data)
   }
@@ -82,8 +82,24 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
             <form>
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="col-span-full px-3 py-3 bg-white">
-                  <div className="mt-4 flex justify-center rounded-lg  bg-white border border-dashed border-gray-900/25 px-6 py-10">
-                    <div className="text-center ">
+                  <div className="col-span-6 sm:col-span-3">
+                    <label
+                      htmlFor="first-name"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Photo
+                    </label>
+                    <input
+                      type="text"
+                      name="profileImage"
+                      id="profileImage"
+                      value={formValues.profileImage}
+                      onChange={handleChange}
+                      className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                  {/* <div className="mt-4 flex justify-center rounded-lg  bg-white border border-dashed border-gray-900/25 px-6 py-10"> */}
+                  {/* <div className="text-center ">
                       <PhotoIcon
                         className="mx-auto h-12 w-12 text-gray-300"
                         aria-hidden="true"
@@ -106,12 +122,13 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                       <p className="text-xs leading-5 text-gray-600">
                         PNG, JPG, GIF up to 10MB
                       </p>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
                     type="submit"
+                    onSubmit={handleSubmit}
                     className="inline-flex justify-center rounded-md bg-[#4d2896] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
                     Save
@@ -156,12 +173,10 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                       </label>
                       <input
                         type="text"
-                        name="name"
-                        id="name"
+                        name="firstName"
+                        id="firstName"
                         value={formValues.firstName}
                         onChange={handleChange}
-                        autoComplete="given-name"
-                        placeholder={userInfo.name}
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -228,7 +243,7 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                         type="text"
                         name="city"
                         id="city"
-                        value={formValues.userName}
+                        value={formValues.city}
                         onChange={handleChange}
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
@@ -252,7 +267,7 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                       />
                     </div>
 
-                    <div className="col-span-6">
+                    {/* <div className="col-span-6">
                       <label
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
@@ -268,8 +283,8 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                         autoComplete="password"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
-                    </div>
-                    <div className="col-span-6">
+                    </div> */}
+                    {/* <div className="col-span-6">
                       <label
                         htmlFor="street-address"
                         className="block text-sm font-medium leading-6 text-gray-900"
@@ -285,21 +300,20 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
                         autoComplete="password"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                   <button
-                    type="submit"
                     onClick={handleDelete}
-                    className="inline-flex justify-center rounded-md bg-[#cd2525] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="inline-flex justify-center rounded-md bg-[#cd2525] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e84b51] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
                     Delete Profile
                   </button>
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="inline-flex justify-center rounded-md bg-[#4d2896] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="inline-flex justify-center rounded-md bg-[#4d2896] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#7930b1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
                     Save
                   </button>
