@@ -13,7 +13,7 @@ const Plan = ({ user, plans, getAllPlans }) => {
   }, [user])
   return user ? (
     <div className="h-full">
-      <div className="grid grid-cols-1 h-full py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {plans.map((plan) => (
           <Link to={`/planDetails/${plan.id}`} key={plan.id}>
             <div

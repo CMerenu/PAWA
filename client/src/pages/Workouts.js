@@ -9,22 +9,25 @@ const Workout = ({ user, getAllWorkouts, setWorkouts, workouts }) => {
 
   useEffect(() => {
     getAllWorkouts()
-  }, [])
+  }, [user])
   return user ? (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="h-full">
+      <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {workouts.map((workout) => (
           <Link to={`/workoutDetails/${workout.id}`} key={workout.id}>
-            <div className="flex-nowrap py-5 w-100 lg:flex " key={workout.id}>
+            <div
+              className="flex-nowrap bg-white hover:shadow-lg hover:scale-105 rounded-lg shadow-md py-5 w-100 lg:flex"
+              key={workout.id}
+            >
               <div className="">
                 <img className="flex px-4" src={workout.image} alt="Workout" />
                 <h3>{workout.name}</h3>
                 <h4>{workout.muscleGroup}</h4>
-                <p className="font-medium">{workout.content}...</p>
+                {/* <p className="font-medium">{workout.content}...</p> */}
               </div>
-              <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              {/* <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                 Delete
-              </button>
+              </button> */}
             </div>
           </Link>
         ))}
