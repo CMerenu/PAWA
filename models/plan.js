@@ -43,6 +43,15 @@ module.exports = (sequelize, DataTypes) => {
           model: 'users',
           key: 'id'
         }
+      },
+      workouts: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        allowNull: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'workout',
+          key: 'id'
+        }
       }
     },
     {

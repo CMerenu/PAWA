@@ -34,7 +34,11 @@ const Login = ({ setUser, setUserInfo }) => {
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="w-full h-screen max-w-md space-y-8">
         <div>
-          <img className="mx-auto h-12 w-auto" src="" alt="Your Company" />
+          <img
+            className="mx-auto h-20 w-auto"
+            src="https://i.postimg.cc/QtNfQd6F/PAWA-3.png"
+            alt="PAWA"
+          />
           <h2 className="mt-6 text-center text-5xl font-bold tracking-tight text-gray-900">
             Log in to your account
           </h2>
@@ -115,7 +119,7 @@ const Login = ({ setUser, setUserInfo }) => {
             <button
               type="submit"
               onClick={handleSubmit}
-              className="group relative flex w-full justify-center rounded-md bg-purple-600 py-2 px-3 text-m font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="group relative flex w-full justify-center rounded-md bg-purple-600 py-2 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <LockClosedIcon

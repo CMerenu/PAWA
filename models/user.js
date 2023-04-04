@@ -50,6 +50,15 @@ module.exports = (sequelize, DataTypes) => {
       profileImage: {
         allowNull: true,
         type: DataTypes.STRING
+      },
+      plans: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        allowNull: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'plans',
+          key: 'id'
+        }
       }
     },
     {

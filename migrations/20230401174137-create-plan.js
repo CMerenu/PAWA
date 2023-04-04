@@ -21,6 +21,11 @@ module.exports = {
       image: {
         type: Sequelize.STRING
       },
+      workouts: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        onDelete: 'CASCADE',
+        allowNull: true
+      },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,

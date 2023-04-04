@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Workout.belongsTo(models.Plan, {
         foreignKey: 'planId'
       })
+      Workout.hasMany(models.Exercise, {
+        foreignKey: 'workoutId'
+      })
     }
   }
   Workout.init(
@@ -33,6 +36,15 @@ module.exports = (sequelize, DataTypes) => {
       image: {
         allowNull: false,
         type: DataTypes.STRING
+      },
+      exercises: {
+        type: DataTypes.ARRAY(DataTypes.INTEGER),
+        allowNull: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'exercises',
+          key: 'id'
+        }
       },
       userId: {
         type: DataTypes.INTEGER,

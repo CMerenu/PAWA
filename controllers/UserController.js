@@ -63,6 +63,33 @@ const UpdateUser = async (req, res) => {
   }
 }
 
+const UpdateUserPlan = async (req, res) => {
+  try {
+    let newArr = []
+    const id = parseInt(req.params.userId)
+    const planId = req.body
+    console.log(planId)
+    let find = await User.findByPk(id)
+    const arr = find.plans
+    console.log(arr)
+    if (arr.length < 1) {
+      newArr.push(planId.plans)
+    } else {
+      newArr.push(arr, planId.plans)
+    }
+    console.log(newArr, 'this is a new arr')
+    let updateUserPlan = await User.update(
+      {
+        plans: newArr
+      },
+      { where: { id: id } }
+    )
+    res.send(updateUserPlan)
+  } catch (error) {
+    throw error
+  }
+}
+
 const DeleteUser = async (req, res) => {
   try {
     let id = parseInt(req.params.userId)
@@ -79,5 +106,6 @@ module.exports = {
   GetUser,
   CreateUser,
   UpdateUser,
-  DeleteUser
+  DeleteUser,
+  UpdateUserPlan
 }

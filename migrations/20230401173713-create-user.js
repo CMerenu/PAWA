@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -27,6 +27,11 @@ module.exports = {
       state: {
         type: Sequelize.STRING
       },
+      plans: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        onDelete: 'CASCADE',
+        allowNull: true
+      },
       passwordDigest: {
         type: Sequelize.STRING
       },
@@ -41,9 +46,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Users')
   }
-};
+}

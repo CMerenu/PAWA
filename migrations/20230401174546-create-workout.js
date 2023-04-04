@@ -27,6 +27,11 @@ module.exports = {
         field: 'userId',
         onDelete: 'CASCADE'
       },
+      exercises: {
+        type: Sequelize.ARRAY(Sequelize.INTEGER),
+        onDelete: 'CASCADE',
+        allowNull: true
+      },
       planId: {
         type: Sequelize.INTEGER,
         allowNull: false,

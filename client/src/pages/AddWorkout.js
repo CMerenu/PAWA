@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import React from 'react'
 import Client from '../services/api'
-import { AddWork } from '../services/Auth'
+import { CreateWorkout } from '../services/WorkoutServices'
 
 const AddWorkout = ({ userInfo }) => {
   const userName = userInfo.userName
@@ -18,16 +18,7 @@ const AddWorkout = ({ userInfo }) => {
     day: '',
     userId: userId
   }
-  const [workouts, setWorkouts] = useState([])
-  const GetAllWorkouts = async () => {
-    try {
-      const res = await Client.get('/workout/find_workout')
-      console.log(res)
-      setWorkouts(res.data)
-    } catch (error) {
-      throw error
-    }
-  }
+
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
@@ -36,7 +27,7 @@ const AddWorkout = ({ userInfo }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await AddWork({
+    await CreateWorkout({
       workoutPlan: formValues.firstName,
       name: formValues.name,
       goal: formValues.goal,

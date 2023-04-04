@@ -7,5 +7,6 @@ Router.get('/get_user/:id', controller.GetUser)
 Router.get('/get_user/by_email/:email', controller.GetUserByEmail)
 Router.put('/update_user/by_id/:userId', controller.UpdateUser)
 Router.delete('/delete_user/:userId', controller.DeleteUser)
+Router.put('/update_userPlan/by_id/:userId', controller.UpdateUserPlan)
 
 module.exports = Router

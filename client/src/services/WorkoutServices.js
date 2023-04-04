@@ -22,3 +22,19 @@ export const updateWorkout = async (data) => {
     throw error
   }
 }
+
+export const pushPlan = async (userId, planId) => {
+  try {
+    await Client.put(`/update_userPlan/by_id/${userId}`, planId)
+  } catch (error) {
+    throw error
+  }
+}
+export const CreateWorkout = async (data) => {
+  try {
+    const res = await Client.post('workout/create_workout', data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
