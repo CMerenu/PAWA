@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import { CreatePlan } from '../services/WorkoutServices'
 
-const AddPlan = ({ userInfo }) => {
+const AddPlan = ({ user, userInfo }) => {
   const userName = userInfo.userName
   console.log(userName)
   const userId = userInfo.id
-  console.log(userInfo)
+  console.log(userId)
 
   let navigate = useNavigate()
   let initialState = {
@@ -65,7 +65,7 @@ const AddPlan = ({ userInfo }) => {
                         id="name"
                         autoComplete="name"
                         onChange={handleChange}
-                        onSubmit={handleSubmit}
+                        value={formValues.name}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -76,7 +76,7 @@ const AddPlan = ({ userInfo }) => {
                       htmlFor="goal"
                       className="block text-sm font-medium leading-6 text-white-900"
                     >
-                      Name
+                      Goal
                     </label>
                     <div className="mt-2">
                       <input
@@ -84,7 +84,7 @@ const AddPlan = ({ userInfo }) => {
                         name="goal"
                         id="goal"
                         onChange={handleChange}
-                        onSubmit={handleSubmit}
+                        value={formValues.goal}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -103,7 +103,7 @@ const AddPlan = ({ userInfo }) => {
                         name="content"
                         type="content"
                         onChange={handleChange}
-                        onSubmit={handleSubmit}
+                        value={formValues.content}
                         className="block w-full rounded-md border-0 py-1.5 text-black-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                       />
                     </div>
@@ -123,7 +123,7 @@ const AddPlan = ({ userInfo }) => {
                           name="image"
                           type="text"
                           onChange={handleChange}
-                          onSubmit={handleSubmit}
+                          value={formValues.image}
                           className="block w-full rounded-md border-0 py-1.5 text-black-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
                         />
                       </div>

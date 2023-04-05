@@ -10,19 +10,15 @@ const NavBar = ({ user, userInfo, handleLogOut}) =>  {
   if (user) {
   userOptions = (
     <nav>
-      <div>
-      <img src={user.profilePicture} />
-      <h3 text-white>{user.userName}</h3>
-      </div>
     <div className='flex justify-between bg-[#512a71] items-center h-16 max-w-[screen] mx-auto text-white'>
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
         <NavUsername user={user} />
-        <li><Dropdown /></li>
+        {/* <li><Dropdown /></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/profilePage">Profile Page</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/profilePage"></Link></li> */}
         <LoginButton user={user} handleLogOut={handleLogOut} />
       </ul>
     </div>

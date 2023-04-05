@@ -27,8 +27,6 @@ function App() {
   const [plans, setPlans] = useState([])
   const [workouts, setWorkouts] = useState([])
 
-  console.log(userInfo)
-
   const navigate = useNavigate()
 
   const checkToken = async () => {
@@ -46,7 +44,6 @@ function App() {
   const getAllPlans = async () => {
     try {
       const res = await Client.get('/plan/get_plans')
-      console.log(res)
       setPlans(res.data)
     } catch (error) {
       throw error
@@ -55,7 +52,6 @@ function App() {
   const getAllWorkouts = async () => {
     try {
       const res = await Client.get('/workout/find_workouts')
-      console.log(res)
       setWorkouts(res.data)
     } catch (error) {
       throw error
@@ -106,17 +102,44 @@ function App() {
           />
           <Route
             path="/planDetails/:id"
-            element={<PlanDetails user={user} userInfo={userInfo} />}
+            element={
+              <PlanDetails
+                user={user}
+                getAllPlans={getAllPlans}
+                plans={plans}
+                setPlans={setPlans}
+                userInfo={userInfo}
+              />
+            }
           />
           <Route
             path="addWorkout"
-            element={<AddWorkout user={user} userInfo={userInfo} />}
+            element={
+              <AddWorkout
+                user={user}
+                getAllPlans={getAllPlans}
+                plans={plans}
+                setPlans={setPlans}
+                userInfo={userInfo}
+              />
+            }
           />
           <Route
-            path="/updateWorkout/:id"
-            element={<UpdateWorkout user={user} userInfo={userInfo} />}
+            path="updateWorkout/:id"
+            element={
+              <UpdateWorkout
+                user={user}
+                getAllPlans={getAllPlans}
+                plans={plans}
+                setPlans={setPlans}
+                userInfo={userInfo}
+              />
+            }
           />
-          <Route path="addPlan" element={<AddPlan userInfo={userInfo} />} />
+          <Route
+            path="addPlan"
+            element={<AddPlan user={user} userInfo={userInfo} />}
+          />
           <Route
             path="/updatePlan/:id"
             element={<UpdatePlan user={user} userInfo={userInfo} />}

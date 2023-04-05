@@ -4,6 +4,7 @@ import axios from 'axios'
 import Client from '../services/api'
 import { updateWorkout } from '../services/WorkoutServices'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const WorkoutDetails = ({ user, userInfo }) => {
   let { id } = useParams()
@@ -23,8 +24,12 @@ const WorkoutDetails = ({ user, userInfo }) => {
   console.log(user)
   console.log(userInfo)
 
+  const deleteWorkout = async () => {
+    const res = await Client.delete(`/delete_workout/${id}`)
+  }
+
   const getPlanDetails = async () => {
-    const plan = await Client.get(`plan/by_user/${workoutDetails.planId}`)
+    const plan = await Client.get(`/plan/by_user/${workoutDetails.planId}`)
     console.log(plan)
     setPlanDetails(plan.data)
   }
@@ -34,7 +39,7 @@ const WorkoutDetails = ({ user, userInfo }) => {
   }, [user])
   if (workoutDetails)
     return (
-      <div className="min-h-screen bg-gray-100">
+      <div className="min-h-screen">
         {user && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="py-12">
@@ -50,6 +55,19 @@ const WorkoutDetails = ({ user, userInfo }) => {
                     <p className="text-gray-700 font-bold text-xl mb-2">
                       Muscle: {workoutDetails.muscleGroup}
                     </p>
+                  </div>
+                  <div>
+                    <Link to={`/updateWorkout/${id}`} key={workoutDetails.id}>
+                      <button className="bg-white p-2 rounded-sm shadow-md mt-4 my-3">
+                        Update Workout
+                      </button>
+                    </Link>
+                    <button
+                      className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
+                      onClick={() => deleteWorkout(id)}
+                    >
+                      Delete
+                    </button>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-md mt-4">
                     <p className="text-gray-700 font-bold mb-2">

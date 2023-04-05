@@ -1,13 +1,14 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import React from 'react'
-import Client from '../services/api'
 import { CreateWorkout } from '../services/WorkoutServices'
+import Client from '../services/api'
 
-const AddWorkout = ({ userInfo }) => {
-  const userName = userInfo.userName
-  console.log(userName)
-  const userId = userInfo.id
+const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
+  console.log(plans)
+  console.log(userInfo)
+  const id = userInfo.id
+  console.log(id)
 
   let navigate = useNavigate()
   let initialState = {
@@ -15,19 +16,10 @@ const AddWorkout = ({ userInfo }) => {
     name: '',
     goal: '',
     content: '',
-    day: '',
-    userId: userId
+    image: '',
+    userId: id
   }
-  const [workouts, setWorkouts] = useState([])
-  const GetAllWorkouts = async () => {
-    try {
-      const res = await Client.get('/workout/find_workout')
-      console.log(res)
-      setWorkouts(res.data)
-    } catch (error) {
-      throw error
-    }
-  }
+
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
@@ -37,15 +29,19 @@ const AddWorkout = ({ userInfo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await CreateWorkout({
-      workoutPlan: formValues.firstName,
+      planId: formValues.planId,
       name: formValues.name,
-      goal: formValues.goal,
+      muscleGroup: formValues.muscleGroup,
       content: formValues.content,
-      day: formValues.day
+      image: formValues.image,
+      userId: id
     })
     setFormValues(initialState)
     navigate('/workout')
   }
+  useEffect(() => {
+    getAllPlans()
+  })
 
   return (
     <form>
@@ -62,20 +58,22 @@ const AddWorkout = ({ userInfo }) => {
               <div className="mt-5 grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5">
                 <div className="col-span-4 sm:col-span-3">
                   <label
-                    htmlFor="country"
+                    htmlFor="plan"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     Workout Plan
                   </label>
+
                   <div className="mt-2">
                     <select
                       id="workoutPlan"
                       name="workoutPlan"
+                      value={formValues.planId}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     >
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Mexico</option>
+                      {plans.map((plan) => (
+                        <option value={plan.id}>{plan.name}</option>
+                      ))}
                     </select>
                   </div>
                 </div>
@@ -143,14 +141,14 @@ const AddWorkout = ({ userInfo }) => {
                     htmlFor="street-address"
                     className="block text-sm font-medium leading-6 text-white-900"
                   >
-                    Day
+                    Image
                   </label>
                   <div className="mt-2">
                     <input
                       type="text"
-                      name="day"
-                      id="day"
-                      value={formValues.name}
+                      name="image"
+                      id="image"
+                      value={formValues.image}
                       onChange={handleChange}
                       className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-white-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />

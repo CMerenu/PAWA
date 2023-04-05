@@ -15,7 +15,7 @@ const PlanDetails = ({ user, userInfo }) => {
   const [planDetails, setPlanDetails] = useState()
 
   const getPlanDetails = async () => {
-    const res = await Client.get(`plan/by_id/${id}`)
+    const res = await Client.get(`/plan/by_id/${id}`)
     console.log(res)
     setPlanDetails(res.data)
   }
@@ -23,7 +23,7 @@ const PlanDetails = ({ user, userInfo }) => {
   console.log(planDetails)
 
   const deletePlan = async (planId) => {
-    const deleted = await Client.delete(`plan//delete_plan/${planId}`)
+    const deleted = await Client.delete(`/plan/delete_plan/${planId}`)
     navigate('/plans')
     console.log(deleted)
   }
@@ -39,7 +39,7 @@ const PlanDetails = ({ user, userInfo }) => {
             <div className="py-12">
               <h1 className="text-3xl font-bold text-gray-900 mb-4"></h1>
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1 lg:w-1/2 mr-4 mb-4">
+                <div className="md:w-1/2 lg:w-1/2 mr-4 mb-4">
                   <img
                     src={planDetails?.image}
                     alt="post"
