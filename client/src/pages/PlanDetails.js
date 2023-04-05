@@ -8,24 +8,24 @@ import { pushPlan } from '../services/WorkoutServices'
 
 const PlanDetails = ({ user, userInfo }) => {
   let { id } = useParams()
-
+  console.log(id)
   let navigate = useNavigate()
 
-  const [results, setResults] = useState(null)
+  // const [results, setResults] = useState(null)
   const [planDetails, setPlanDetails] = useState()
 
   const getPlanDetails = async () => {
-    const res = await Client.get(`/plan/by_id/${id}`)
+    const res = await Client.get(`plan/by_id/${id}`)
     console.log(res)
     setPlanDetails(res.data)
   }
 
   console.log(planDetails)
 
-  const deletePlan = async (planId) => {
-    const deleted = await Client.delete(`/plan/delete_plan/${planId}`)
+  const deletePlan = async (event, id) => {
+    const deleted = await Client.delete(`/plan/delete_plan/${id}`)
+    window.alert('Success! Plan was deleted')
     navigate('/plans')
-    console.log(deleted)
   }
   useEffect(() => {
     getPlanDetails()
@@ -59,17 +59,14 @@ const PlanDetails = ({ user, userInfo }) => {
                         Add Plan!
                       </button>
                     </div>
-                    <Link
-                      to={`/updatePlan/${planDetails.id}`}
-                      key={planDetails.id}
-                    >
+                    <Link to={`/updatePlan/${id}`} key={id}>
                       <button className="bg-white p-2 rounded-sm shadow-md mt-4 my-3">
                         Update Plan
                       </button>
                     </Link>
                     <button
                       className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
-                      onClick={() => deletePlan(planDetails.id)}
+                      onClick={(event) => deletePlan(event, id)}
                     >
                       Delete
                     </button>

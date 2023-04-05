@@ -24,18 +24,16 @@ const WorkoutDetails = ({ user, userInfo }) => {
   console.log(user)
   console.log(userInfo)
 
-  const deleteWorkout = async () => {
-    const res = await Client.delete(`/delete_workout/${id}`)
+  const deleteWorkout = async (event, id) => {
+    const res = await Client.delete(`/workout/delete_workout/${id}`)
+    console.log(res)
+    window.alert('Success! Workout was deleted')
+    navigate('/dashboard')
   }
 
-  const getPlanDetails = async () => {
-    const plan = await Client.get(`/plan/by_user/${workoutDetails.planId}`)
-    console.log(plan)
-    setPlanDetails(plan.data)
-  }
   useEffect(() => {
     getWorkoutDetails()
-    getPlanDetails()
+    // getPlanDetails()
   }, [user])
   if (workoutDetails)
     return (
@@ -64,7 +62,7 @@ const WorkoutDetails = ({ user, userInfo }) => {
                     </Link>
                     <button
                       className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
-                      onClick={() => deleteWorkout(id)}
+                      onClick={(event) => deleteWorkout(event, id)}
                     >
                       Delete
                     </button>

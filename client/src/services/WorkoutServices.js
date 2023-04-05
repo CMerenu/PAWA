@@ -10,14 +10,14 @@ export const CreatePlan = async (data) => {
 }
 export const updatePlan = async (data) => {
   try {
-    await Client.put(`plan/update_plan/by_id/${data.planId}`, data)
+    await Client.put(`/plan/update_plan/by_id/${data.planId}`, data)
   } catch (error) {
     throw error
   }
 }
 export const updateWorkout = async (data) => {
   try {
-    await Client.put(`/update_workout/${data.workoutId}`, data)
+    await Client.put(`workout/update_workout/${data.workoutId}`, data)
   } catch (error) {
     throw error
   }
@@ -25,7 +25,7 @@ export const updateWorkout = async (data) => {
 
 export const pushPlan = async (userId, planId) => {
   try {
-    await Client.put(`/update_userPlan/by_id/${userId}`, planId)
+    await Client.put(`plan/update_user/Plan/by_id/${userId}`, planId)
   } catch (error) {
     throw error
   }

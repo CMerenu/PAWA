@@ -3,11 +3,12 @@ import { UpdateUser } from '../services/Auth'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Client from '../services/api'
-import { PhotoIcon } from '@heroicons/react/24/solid'
 
 const EditProfile = ({ user, userInfo, handleLogOut }) => {
   let { id } = useParams()
-
+  const userId = userInfo.id
+  console.log(id)
+  console.log(userId)
   let navigate = useNavigate()
 
   let initialState = {
@@ -39,19 +40,19 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
 
   useEffect(() => {
     getUserById()
-  }, [])
+  }, [user])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = {
+      userId: userId,
       firstName: formValues.firstName,
       lastName: formValues.lastName,
       email: formValues.email,
       userName: formValues.userName,
       city: formValues.city,
       state: formValues.state,
-      profileImage: formValues.profileImage,
-      userId: id
+      profileImage: formValues.profileImage
     }
     await UpdateUser(payload)
     setFormValues(initialState)
@@ -160,7 +161,7 @@ const EditProfile = ({ user, userInfo, handleLogOut }) => {
             </div>
           </div>
           <div className="mt-5 md:col-span-2 md:mt-0">
-            <form onSubmit={handleSubmit}>
+            <form>
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">

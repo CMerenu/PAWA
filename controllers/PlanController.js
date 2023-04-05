@@ -57,9 +57,9 @@ const UpdatePlan = async (req, res) => {
 
 const DeletePlan = async (req, res) => {
   try {
-    let planId = parseInt(req.params.planId)
-    await Plan.destroy({ where: { id: planId } })
-    res.send({ message: `Deleted Plan with an id of ${planId}` })
+    let id = parseInt(req.params.plan_id)
+    await Plan.destroy({ where: { id: id } })
+    res.send({ message: `Deleted Plan with an id of ${id}` })
   } catch (error) {
     throw error
   }

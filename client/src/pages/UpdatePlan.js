@@ -7,7 +7,9 @@ import { updatePlan } from '../services/WorkoutServices'
 const UpdatePlan = ({ plans, user, userInfo }) => {
   const userId = userInfo.id
   let { id } = useParams()
-  console.log(id)
+  const planId = id
+  console.log(planId)
+  console.log(userId)
   let navigate = useNavigate()
   let initialState = {
     name: '',
@@ -30,7 +32,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const plan = {
-      planId: id,
+      planId: planId,
       name: formValues.name,
       goal: formValues.goal,
       content: formValues.content,
@@ -39,7 +41,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
     }
     await updatePlan(plan)
     navigate(`/plan`)
-    alert('Plan Updated!!')
+    window.alert('Plan Updated!!')
   }
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
