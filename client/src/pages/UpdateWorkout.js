@@ -39,18 +39,15 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
   console.log(workoutDetails)
 
   const updateWorkout = async (data) => {
-    try {
-      await Client.put(`/update_workout/${id}`, data)
-    } catch (error) {
-      throw error
-    }
+    console.log(data)
+    const updates = await Client.put(`/workout/update_workout/${id}`, data)
   }
-  // console.log(find)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const updatedWorkout = {
-      // planId: formValues.planId,
+    console.log(formValues)
+    let updatedWorkout = {
+      planId: workoutDetails.planId,
       name: formValues.name,
       muscleGroup: formValues.muscleGroup,
       content: formValues.content,
@@ -58,13 +55,13 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
       userId: id
     }
     await updateWorkout(updatedWorkout)
-    setFormValues(initialState)
+    // setFormValues(initialState)
     navigate('/workout')
     alert('Workout has been updated!')
   }
   useEffect(() => {
     getWorkoutDetails()
-  }, [])
+  }, [user])
 
   if (workoutDetails)
     return (
@@ -182,7 +179,7 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                 <div className="mt-6 flex items-center justify-end gap-x-6">
                   <button
                     type="submit"
-                    onSubmit={handleSubmit}
+                    onSubmit={() => handleSubmit}
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Upload

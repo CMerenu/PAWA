@@ -39,19 +39,11 @@ const GetWorkoutByPlanId = async (req, res) => {
 const UpdateWorkout = async (req, res) => {
   try {
     let id = req.params.workout_id
-    let updatedWorkout = req.body
-    const data = await Workout.update(
-      {
-        name: updatedWorkout.name,
-        muscleGroup: updatedWorkout.muscleGroup,
-        content: updatedWorkout.content,
-        image: updatedWorkout.image,
-        userId: updatedWorkout.userId,
-        planId: updatedWorkout.planId
-      },
-      { where: { id: id } }
-    )
-    res.send(data)
+    let updatedWorkout = await Workout.update(req.body, {
+      where: { id: id },
+      returning: true
+    })
+    res.send(updatedWorkout)
   } catch (error) {
     throw error
   }

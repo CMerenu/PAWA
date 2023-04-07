@@ -39,7 +39,7 @@ const AddPlan = ({ user, userInfo }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="space-y-12">
           <div className="border-b border-white-900/10 pb-12 grid w-screen place-items-center">
             <h2 className="text-base font-semibold leading-7 text-purple-900">

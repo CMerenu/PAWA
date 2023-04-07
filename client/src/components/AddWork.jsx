@@ -1,13 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import React from 'react'
-import { createWorkout } from '../services/WorkoutServices'
-import Client from '../services/api'
+import { useNavigate, useParams } from "react-router-dom"
+import { createWorkout } from "../services/WorkoutServices"
+import { useEffect } from "react"
+import { useState } from "react"
 
-const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
-  console.log(plans)
+const AddWork = ({userInfo}) => {
+  let { id } = useParams()
   console.log(userInfo)
-  const id = userInfo.id
   console.log(id)
 
   let navigate = useNavigate()
@@ -21,7 +19,6 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
-  const [planNumber, setPlanNumber] = useState('')
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
@@ -30,7 +27,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await createWorkout({
-      planId: planNumber,
+      planId: id,
       name: formValues.name,
       muscleGroup: formValues.muscleGroup,
       content: formValues.content,
@@ -41,11 +38,12 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
     navigate('/workout')
   }
   useEffect(() => {
-    getAllPlans()
   })
-  console.log(planNumber)
-  return (
-    <form>
+
+
+  return(
+<div>
+<form>
       <div className="space-y-12">
         <div className="border-b border-white-900/10 pb-12 grid w-screen place-items-center">
           <h2 className="text-base font-semibold leading-7 text-purple-900">
@@ -57,31 +55,6 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
           <div className="overflow-hidden w-2/3 justify-items-center shadow sm:rounded-md y">
             <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center w-41">
               <div className="mt-5 grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5">
-                <div className="col-span-4 sm:col-span-3">
-                  <label
-                    htmlFor="plan"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Workout Plan
-                  </label>
-
-                  <div className="mt-2">
-                    <select
-                      onChange={(e) => {
-                        const plane = e.target.value
-                        setPlanNumber(plane)
-                      }}
-                      id="workoutPlan"
-                      name="workoutPlan"
-                      value={formValues.planId}
-                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-                    >
-                      {plans.map((plan) => (
-                        <option value={plan.id}>{plan.name}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
 
                 <div className="col-span-5 sm:col-span-3">
                   <label
@@ -174,7 +147,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
         </div>
       </div>
     </form>
+</div>
   )
 }
-
-export default AddWorkout
+export default AddWork

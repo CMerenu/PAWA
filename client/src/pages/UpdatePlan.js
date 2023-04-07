@@ -8,8 +8,8 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
   const userId = userInfo.id
   let { id } = useParams()
   const planId = id
-  console.log(planId)
-  console.log(userId)
+  // console.log(planId)
+  // console.log(userId)
   let navigate = useNavigate()
   let initialState = {
     name: '',
@@ -19,19 +19,23 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
+  const update = async (data) => {
+    const ret = await Client.put(`/plan/update_plan/by_id/${id}`, data)
+  }
 
   const getPlanById = async () => {
     const res = await Client.get(`/plan/by_id/${id}`)
-    console.log(res)
+    console.log(res.data)
     setFormValues(res.data)
   }
   useEffect(() => {
     getPlanById()
-  }, [])
+  }, [user])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const plan = {
+    console.log('here')
+    let plan = {
       planId: planId,
       name: formValues.name,
       goal: formValues.goal,
@@ -39,16 +43,25 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
       image: formValues.image,
       userId: userId
     }
-    await updatePlan(plan)
+    // console.log(plan)
+    await update(plan)
+    // setFormValues(initialState)
     navigate(`/plan`)
-    window.alert('Plan Updated!!')
+    // e.preventDefault()
+    // window.alert('Plan Updated!!')
   }
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
+
+  const formSubmit = document.getElementById('form')
+  if (formSubmit) {
+    formSubmit.addEventListener('submit', handleSubmit)
+  }
+
   return (
     <div className="h-full">
-      <form>
+      <form id="form">
         <div className=" h-full py-7 space-y-12">
           <div className="border-b border-white-900/10 pb-12 grid w-screen place-items-center">
             <h2 className="text-base font-semibold leading-7 text-purple-900">
@@ -137,10 +150,14 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 flex items-center justify-end gap-x-6">
+                <div
+                  className="mt-6 flex items-center justify-end gap-x-6"
+                  id="submitButton"
+                >
                   <button
                     type="submit"
-                    onSubmit={handleSubmit}
+                    // onSubmit={handleSubmit()}
+                    onSubmit={() => handleSubmit}
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Save

@@ -44,7 +44,7 @@ const CreatePlan = async (req, res) => {
 
 const UpdatePlan = async (req, res) => {
   try {
-    const planId = parseInt(req.params.planId)
+    let planId = parseInt(req.params.plan_id)
     let updatedPlan = await Plan.update(req.body, {
       where: { id: planId },
       returning: true

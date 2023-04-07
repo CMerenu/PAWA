@@ -125,7 +125,7 @@ function App() {
             }
           />
           <Route
-            path="updateWorkout/:workoutId"
+            path="updateWorkout/:id"
             element={
               <UpdateWorkout
                 user={user}

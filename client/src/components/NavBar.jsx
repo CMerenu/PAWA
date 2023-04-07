@@ -17,7 +17,7 @@ const NavBar = ({ user, userInfo, handleLogOut}) =>  {
         {/* <li><Dropdown /></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/profilePage">Profile</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/editProfile">Edit</Link></li>
         <LoginButton user={user} handleLogOut={handleLogOut} />
@@ -35,7 +35,7 @@ const publicOptions = (
         <NavUsername user={user} />
         <li className='p-4 hover:text-purple-500'><Link to="/home">Home</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/about">About</Link></li>
       </ul>
     </div>

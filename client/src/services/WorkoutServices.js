@@ -17,7 +17,7 @@ export const updatePlan = async (data) => {
 }
 export const updateWorkout = async (data) => {
   try {
-    await Client.put(`workout/update_workout/${data.workoutId}`, data)
+    await Client.put(`/workout/update_workout/${data.workoutId}`, data)
   } catch (error) {
     throw error
   }
@@ -30,7 +30,7 @@ export const pushPlan = async (userId, planId) => {
     throw error
   }
 }
-export const CreateWorkout = async (data) => {
+export const createWorkout = async (data) => {
   try {
     const res = await Client.post('workout/create_workout', data)
     return res.data
