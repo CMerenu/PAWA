@@ -79,7 +79,7 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                 <div className="gap-y-5  sm:grid-cols-5">
                   <div className="m:col-span-3 py-3">
                     <label className="block text-base font-medium leading-6 text-white-900">
-                      Name
+                      Name:
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -97,7 +97,7 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
 
                   <div className="col-span-5 sm:col-span-3">
                     <label className="block text-base font-medium leading-6 text-white-900">
-                      Muscle Group
+                      Muscle Group:
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -114,7 +114,7 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
 
                   <div className="col-span-5 sm:col-span-3">
                     <label className="block text-base font-medium leading-6 text-white-900">
-                      Content
+                      Content:
                     </label>
                     <div className="mt-2">
                       <textarea
