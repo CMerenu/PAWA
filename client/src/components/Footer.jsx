@@ -21,7 +21,7 @@ const Footer = () => {
                       <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                       <ul className="text-gray-600 dark:text-gray-400">
                           <li className="mb-4">
-                              <a href="" className="hover:underline hover:text-orange-500">Github</a>
+                              <a href="" className="hover:underline hover:text-purple-500">Github</a>
                           </li>
                       </ul>
                   </div>
@@ -29,7 +29,7 @@ const Footer = () => {
                       <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                       <ul className="text-gray-600 dark:text-gray-400">
                           <li className="mb-4">
-                              <a href="#" className="hover:underline hover:text-orange-500">Privacy Policy</a>
+                              <a href="#" className="hover:underline hover:text-purple-500">Privacy Policy</a>
                           </li>
                           <li>
                               <a href="#" className="hover:underline hover:text-orange-500">Terms &amp; Conditions</a>
