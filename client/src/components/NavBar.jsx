@@ -13,13 +13,13 @@ const NavBar = ({ user, userInfo, handleLogOut}) =>  {
     <div className='flex justify-between bg-[#512a71] items-center h-16 max-w-[screen] mx-auto text-white'>
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
-        <NavUsername user={user} />
+        <NavUsername user={user} userInfo={userInfo}/>
         {/* <li><Dropdown /></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/dashboard">DashBoard</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li> */}
         {/* <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li> */}
-        <li className='p-4 hover:text-purple-500'><Link to="/profilePage">Profile</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/editProfile">Edit</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/profilePage">Profile</Link></li> */}
+        <li className='p-4 hover:text-purple-500'><Link to="/editProfile">Edit Profile</Link></li>
         <LoginButton user={user} handleLogOut={handleLogOut} />
       </ul>
     </div>
@@ -31,11 +31,10 @@ const publicOptions = (
     <div className='flex justify-between bg-[#512a71] items-center h-16 max-w-[screen] mx-auto text-white'>
       <h1 className='w-full text-3xl font-bold text-align:left text-white'>PAWA.</h1>
       <ul className='hidden md:flex'>
+        <NavUsername user={user} userInfo={userInfo} />
         <LoginButton user={user} handleLogOut={handleLogOut} />
-        <NavUsername user={user} />
         <li className='p-4 hover:text-purple-500'><Link to="/home">Home</Link></li>
         <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
-        {/* <li className='p-4 hover:text-purple-500'><Link to="/workout">Workouts</Link></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/about">About</Link></li>
       </ul>
     </div>

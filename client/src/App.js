@@ -6,14 +6,14 @@ import RegisterProfile from './pages/Register'
 import Login from './pages/LogIn'
 import AddWorkout from './pages/AddWorkout'
 import AddPlan from './pages/AddPlan'
-import DashBoard from './pages/DashBoard'
+
 import EditProfile from './pages/EditProfile'
 import Home from './pages/Home'
 import ProfilePage from './pages/ProfilePage'
 import AboutPage from './pages/AboutPage'
 import UpdateWorkout from './pages/UpdateWorkout'
 import UpdatePlan from './pages/UpdatePlan'
-import Plan from './pages/Plan'
+import Dashboard from './pages/Dashboard'
 import WorkoutDetails from './pages/WorkoutDetails'
 import PlanDetails from './pages/PlanDetails'
 import { useState, useEffect } from 'react'
@@ -85,9 +85,9 @@ function App() {
             }
           />
           <Route
-            path="plan"
+            path="dashboard"
             element={
-              <Plan
+              <Dashboard
                 user={user}
                 getAllPlans={getAllPlans}
                 plans={plans}
@@ -143,10 +143,6 @@ function App() {
           <Route
             path="/updatePlan/:id"
             element={<UpdatePlan user={user} userInfo={userInfo} />}
-          />
-          <Route
-            path="dashboard"
-            element={<DashBoard userInfo={userInfo} user={user} />}
           />
           <Route
             path="editProfile"
