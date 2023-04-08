@@ -43,15 +43,31 @@ const Home = () => {
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
               <p className="text-base font-semibold leading-7 text-indigo-600">
-                Deploy faster
+                Work More Efficiently
               </p>
               <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                A better workflow
+                PAWA
               </h1>
               <p className="mt-6 text-xl leading-8 text-gray-700">
-                Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
-                sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
-                id at vitae feugiat egestas.
+                Welcome to our bodybuilding application! Our app is designed to
+                help you achieve your fitness goals by providing you with
+                personalized workout plans and nutrition advice. Whether you're
+                a beginner or an experienced bodybuilder, our app is here to
+                help you reach your full potential. We have a team of expert
+                trainers and nutritionists who have designed customized programs
+                for people of all fitness levels. With our app, you'll have
+                access to a wide range of exercises that target specific muscle
+                groups, as well as cardio routines to help you burn fat and
+                increase your endurance. You'll also have access to meal plans
+                that are tailored to your specific goals, whether you're looking
+                to build muscle, lose weight, or simply maintain your current
+                physique. Our app features detailed instructional videos and
+                animations for each exercise, so you can be sure you're
+                performing each movement correctly and safely. You'll also be
+                able to track your progress and see how far you've come on your
+                fitness journey. We're excited to have you join our community of
+                bodybuilders and fitness enthusiasts. Let's work together to
+                achieve your goals and become the best version of yourself!
               </p>
             </div>
           </div>
@@ -59,11 +75,11 @@ const Home = () => {
         <div className="-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
           <img
             className="w-[48rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"
-            src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
+            src="https://i.postimg.cc/hG7xvSpy/Screen-Shot-2023-04-08-at-1-17-15-AM.png"
             alt=""
           />
         </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        {/* <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
               <p>
@@ -135,8 +151,8 @@ const Home = () => {
                 turpis ipsum eu a sed convallis diam.
               </p>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </div>
   )
