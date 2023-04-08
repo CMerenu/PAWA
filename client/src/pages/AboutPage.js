@@ -5,11 +5,11 @@ import { BsBriefcaseFill } from 'react-icons/bs'
 
 const AboutPage = () => {
   return (
-    <div className="w-full h-screen py-[1rem] px-4 text-black">
+    <div className="w-full h-full py-[1rem] px-4 text-black">
       <div className="text-left text-4xl pb-[2rem]">
-        <h1 className="text-3xl text-black-500">About Page</h1>
+        <h1 className="text-3xl font-bold text-white">About Us</h1>
       </div>
-      <div className="flex flex-col justify-center">
+      <div className=" flex-col justify-center py-3">
         <p className="text-purple-500 font-bold">THE DREAM BODY APP</p>
         <h1 className="md:text-4xl sm:text-3xl text-3xl font-bold py-2 text-purple">
           Build the body of your DREAMS!{' '}
