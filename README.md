@@ -18,7 +18,7 @@
 - Express
 - React
 - Node.js
-- Tailwind CSS
+- Tailwind
 
 ---
 
