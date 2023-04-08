@@ -8,7 +8,7 @@
 
 ## **_Description_**
 
-#### This is my repository for my Capstone Project where I will create a Full Stack application, incorporating Python and Flask. I chose to develop a workout application that will allows users to find workouts for their specific goals and track their use and analytics as they are on the way to reaching their goals Users will be able to sign up / sign in, create workout plans and singular workouts and see others as will are all wanting to live better, healthier lives. Users will be able to have their own profiles which will display their info as well as post that they have created, as well as locate nearby gyms and potential workout partners in their area, and able to have their own profiles which will display their info as well as post that they have created.
+#### This is my repository for my Capstone Project where I will create a Full Stack application, incorporating PERN Stack. I chose to develop a workout application that will allows users to find workouts for their specific goals and track their use and analytics as they are on the way to reaching their goals Users will be able to sign up / sign in, create workout plans and singular workouts and see others as will are all wanting to live better, healthier lives. Users will be able to have their own profiles which will display their info as well as post that they have created, as well as locate nearby gyms and potential workout partners in their area, and able to have their own profiles which will display their info as well as post that they have created.
 
 ---
 
