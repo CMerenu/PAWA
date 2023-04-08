@@ -3,11 +3,13 @@ import { useState, useEffect } from 'react'
 import React from 'react'
 import { createWorkout } from '../services/WorkoutServices'
 import Client from '../services/api'
+import { useParams } from 'react-router-dom'
 
 const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
+  let { id } = useParams()
   console.log(plans)
   console.log(userInfo)
-  const id = userInfo.id
+  const userId = userInfo.id
   console.log(id)
 
   let navigate = useNavigate()
@@ -30,15 +32,15 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await createWorkout({
-      planId: planNumber,
+      planId: id,
       name: formValues.name,
       muscleGroup: formValues.muscleGroup,
       content: formValues.content,
       image: formValues.image,
-      userId: id
+      userId: userId
     })
     setFormValues(initialState)
-    navigate('/workout')
+    navigate('/dashboard')
   }
   useEffect(() => {
     getAllPlans()
@@ -57,7 +59,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
           <div className="overflow-hidden w-2/3 justify-items-center shadow sm:rounded-md y">
             <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center w-41">
               <div className="mt-5 grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5">
-                <div className="col-span-4 sm:col-span-3">
+                {/* <div className="col-span-4 sm:col-span-3">
                   <label
                     htmlFor="plan"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -81,7 +83,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                       ))}
                     </select>
                   </div>
-                </div>
+                </div> */}
 
                 <div className="col-span-5 sm:col-span-3">
                   <label

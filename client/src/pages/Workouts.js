@@ -22,7 +22,7 @@ const WorkoutsByPlanId = ({ user, userInfo }) => {
   }, [user])
 
   return user ? (
-    <div className="h-full">
+    <div className="h-screen">
       <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {workouts.map((workout) => (
           <Link to={`/workoutDetails/${workout.id}`} key={workout.id}>
@@ -40,7 +40,7 @@ const WorkoutsByPlanId = ({ user, userInfo }) => {
         ))}
       </div>
       <button className="bg-purple-700 font-bold hover:bg-purple-500 w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-white justify-self-center">
-        <Link to={`addWorkout/${id}`}>Add Workout</Link>
+        <Link to={`/addWorkout/${id}`}>Add Workout</Link>
       </button>
     </div>
   ) : (
