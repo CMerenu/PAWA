@@ -56,6 +56,7 @@ const PlanDetails = ({ user, userInfo }) => {
                   />
                   <div className="bg-white p-6 rounded-lg shadow-md mt-4">
                     <p className="text-gray-700 font-bold mb-2">
+                      <span className="text-purple-500">Name: </span>
                       {planDetails?.name}
                     </p>
                   </div>
@@ -81,20 +82,26 @@ const PlanDetails = ({ user, userInfo }) => {
                     </button>
                   </div>
                 </div>
-                <div className="md:w-3/4 lg:w-2/3 mt-4 md:mt-0 py-3 space-y-6">
+                <div className="md:w-3/4 lg:w-2/3 mt-4 md:mt-0 py-3 space-y-5">
                   <div className="bg-white p-6 rounded-lg shadow-md  lg:w-2/3 mt-4 md:mt-0">
                     <p className="text-gray-700 font-bold mb-2">
-                      Goal: {planDetails?.goal}
+                      <span className="text-purple-500">Goal: </span>{' '}
+                      {planDetails?.goal}
                     </p>
                   </div>
-                  <div className="bg-white p-6 rounded-lg shadow-md  lg:w-2/3 mt-4 md:mt-0">
-                    <p className="text-gray-700 font-bold mb-2">
-                      Goal: {planDetails?.content}
+                  <div className="bg-white p-6 rounded-lg shadow-md h-3/5 lg:w-2/3 mt-4 md:mt-0">
+                    <p className="text-gray-700 font-bold mb-2 ">
+                      <span className="text-purple-500">Description: </span>{' '}
+                      {planDetails?.content}
                     </p>
                   </div>
-                  <button className="bg-purple-700 text-white p-6 rounded-lg shadow-md md:w-1/2 lg:w-2/3 mt-4 md:mt-0">
-                    Workouts
-                  </button>
+                  <div>
+                    <Link>
+                      <button className="bg-purple-700 text-white p-6 rounded-lg shadow-md md:w-1/2 lg:w-2/3 mt-4 md:mt-0 hover:scale-120">
+                        Workouts
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
