@@ -44,7 +44,7 @@ A Trello board was used to keep track of development progress and can be viewed 
 
 ##### Componet Hierarchy Diagram
 
-![Image](https://i.postimg.cc/fyqsFS1B/Screen-Shot-2023-04-08-at-1-44-09-AM.png)
+![Image](https://i.postimg.cc/GpCWXjHb/Screen-Shot-2023-04-08-at-1-44-48-AM.png)
 
 ---
 
