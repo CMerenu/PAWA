@@ -70,7 +70,7 @@ const AddPlan = ({ user, userInfo }) => {
 
                   <div className="sm:col-span-3 py-3">
                     <label className="block text-base font-medium leading-6 text-gray-900">
-                      Goal
+                      Goal :
                     </label>
 
                     <div className="mt-2">
