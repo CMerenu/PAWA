@@ -14,12 +14,12 @@ import AboutPage from './pages/AboutPage'
 import UpdateWorkout from './pages/UpdateWorkout'
 import UpdatePlan from './pages/UpdatePlan'
 import Plan from './pages/Plan'
-import Workout from './pages/Workouts'
 import WorkoutDetails from './pages/WorkoutDetails'
 import PlanDetails from './pages/PlanDetails'
 import { useState, useEffect } from 'react'
 import { CheckSession } from '../src/services/Auth'
 import Client from './services/api'
+import WorkoutsByPlanId from './pages/Workouts'
 
 function App() {
   const [user, setUser] = useState(null)
@@ -73,9 +73,9 @@ function App() {
             element={<Login setUser={setUser} setUserInfo={setUserInfo} />}
           />
           <Route
-            path="workout"
+            path="workouts/:id"
             element={
-              <Workout
+              <WorkoutsByPlanId
                 user={user}
                 getAllWorkouts={getAllWorkouts}
                 userInfo={userInfo}

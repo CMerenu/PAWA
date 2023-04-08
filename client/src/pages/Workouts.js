@@ -2,14 +2,25 @@ import { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
+import { useParams } from 'react-router-dom'
 
-const Workout = ({ user, getAllWorkouts, setWorkouts, workouts }) => {
+const WorkoutsByPlanId = ({ user, userInfo }) => {
+  let { id } = useParams()
+  console.log(id)
   let navigate = useNavigate()
+
+  const [workouts, setWorkouts] = useState([])
+
+  const getWorkoutsByPlan = async () => {
+    const res = await Client.get(`workout/find_workouts/by_planId/${id}`)
+    setWorkouts(res.data)
+  }
   console.log(workouts)
 
   useEffect(() => {
-    getAllWorkouts()
+    getWorkoutsByPlan()
   }, [user])
+
   return user ? (
     <div className="h-full">
       <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -23,11 +34,11 @@ const Workout = ({ user, getAllWorkouts, setWorkouts, workouts }) => {
                 <img className="flex px-4" src={workout.image} alt="Workout" />
                 <h3>{workout.name}</h3>
                 <h4>{workout.muscleGroup}</h4>
-                {/* <p className="font-medium">{workout.content}...</p> */}
+                <p className="font-medium">{workout.content}...</p>
               </div>
-              {/* <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+              <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
                 Delete
-              </button> */}
+              </button>
             </div>
           </Link>
         ))}
@@ -53,4 +64,4 @@ const Workout = ({ user, getAllWorkouts, setWorkouts, workouts }) => {
   )
 }
 
-export default Workout
+export default WorkoutsByPlanId
