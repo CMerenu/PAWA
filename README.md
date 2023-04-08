@@ -40,11 +40,11 @@ A Trello board was used to keep track of development progress and can be viewed 
 
 ##### ERD
 
-![Image](https://i.postimg.cc/9MT9GLwX/Capstone-Project-ERD-LAKAS-Database-ER-diagram-crow-s-foot-1.jpg)
+![Image](https://i.postimg.cc/fyqsFS1B/Screen-Shot-2023-04-08-at-1-44-09-AM.png)
 
 ##### Componet Hierarchy Diagram
 
-![Image](https://i.postimg.cc/rF8TZ5QN/Screen-Shot-2023-03-24-at-10-08-47-AM.png)
+![Image](https://i.postimg.cc/fyqsFS1B/Screen-Shot-2023-04-08-at-1-44-09-AM.png)
 
 ---
 
