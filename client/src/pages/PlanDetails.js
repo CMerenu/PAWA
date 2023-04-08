@@ -70,12 +70,12 @@ const PlanDetails = ({ user, userInfo }) => {
                       </button>
                     </div> */}
                     <Link to={`/updatePlan/${id}`} key={id}>
-                      <button className="bg-white p-2 px-2 rounded-lg shadow-md mt-4 my-3 py-3">
+                      <button className="bg-blue-700 p-2 text-white font-bold px-2 rounded-lg shadow-md mt-4 my-3 py-3 hover:bg-blue-500">
                         Update Plan
                       </button>
                     </Link>
                     <button
-                      className="bg-red-700 p-2 text-white sp-2 rounded-lg shadow-md mt-4 my-3 px-2 py-3"
+                      className="bg-red-700 p-2 font-bold text-white sp-2 rounded-lg shadow-md mt-4 my-3 px-2 py-3 hover:bg-red-500"
                       onClick={(event) => deletePlan(event, id)}
                     >
                       Delete
@@ -83,7 +83,7 @@ const PlanDetails = ({ user, userInfo }) => {
                   </div>
                 </div>
                 <div className="md:w-3/4 lg:w-2/3 mt-4 md:mt-0 py-3 space-y-5">
-                  <div className="bg-white p-6 rounded-lg shadow-md  lg:w-2/3 mt-4 md:mt-0">
+                  <div className="bg-white p-6 rounded-lg shadow-md lg:w-2/3 mt-4 md:mt-0">
                     <p className="text-gray-700 font-bold mb-2">
                       <span className="text-purple-500">Goal: </span>{' '}
                       {planDetails?.goal}
@@ -96,8 +96,8 @@ const PlanDetails = ({ user, userInfo }) => {
                     </p>
                   </div>
                   <div>
-                    <Link>
-                      <button className="bg-purple-700 text-white p-6 rounded-lg shadow-md md:w-1/2 lg:w-2/3 mt-4 md:mt-0 hover:scale-120">
+                    <Link to={'/workout'}>
+                      <button className="bg-purple-700 font-bold hover:bg-purple-500 text-white p-6 rounded-lg shadow-md md:w-1/2 lg:w-2/3 mt-4 md:mt-0 hover:scale-120">
                         Workouts
                       </button>
                     </Link>
@@ -128,7 +128,7 @@ const PlanDetails = ({ user, userInfo }) => {
             </div> */}
           </div>
         )}
-        <AddWork />
+        {/* <AddWork /> */}
       </div>
     )
 }

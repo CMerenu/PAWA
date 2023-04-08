@@ -70,21 +70,19 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
             <p className="mt-1 text-sm leading-6 text-white">
               Add a Workout Plan that people can follow!
             </p>
-            <div className="overflow-hidden shadow sm:rounded-md">
+            <div className="overflow-hidden shadow sm:rounded-md w-1/2">
               <div className="bg-white px-4 py-3 sm:p-4">
-                <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-5">
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                <div className=" gap-y-5  sm:grid-cols-5">
+                  <div className="sm:col-span-3 py-3">
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Name
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         type="text"
                         name="name"
                         id="name"
+                        rows={2}
                         value={formValues.name}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
@@ -92,19 +90,17 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
                     </div>
                   </div>
 
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="country"
-                      className="block text-sm font-medium leading-6 text-gray-900"
-                    >
+                  <div className="sm:col-span-3 py-3">
+                    <label className="block text-base font-medium leading-6 text-gray-900">
                       Goal
                     </label>
 
                     <div className="mt-2">
-                      <input
+                      <textarea
                         id="goal"
                         name="goal"
                         type="goal"
+                        rows={3}
                         value={formValues.goal}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-black-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
@@ -112,18 +108,16 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
                     </div>
                   </div>
 
-                  <div className="sm:col-span-3">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                  <div className="sm:col-span-3 py-3">
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Content
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         id="content"
                         name="content"
                         type="content"
+                        rows={5}
                         value={formValues.content}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-black-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
@@ -131,18 +125,16 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
                     </div>
                   </div>
 
-                  <div className="col-span-3">
-                    <label
-                      htmlFor="street-address"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                  <div className="col-span-3 py-3">
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Image
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         type="text"
                         name="image"
                         id="image"
+                        rows={4}
                         value={formValues.image}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-white-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
