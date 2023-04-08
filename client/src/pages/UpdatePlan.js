@@ -102,7 +102,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
 
                   <div className="sm:col-span-3 py-3">
                     <label className="block text-base font-medium leading-6 text-white-900">
-                      Content
+                      Content:
                     </label>
                     <div className="mt-2">
                       <textarea
@@ -119,7 +119,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
 
                   <div className="col-span-3 py-3">
                     <label className="block text-base font-medium leading-6 text-white-900">
-                      Image
+                      Image:
                     </label>
                     <div className="mt-2">
                       <textarea
