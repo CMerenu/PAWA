@@ -99,7 +99,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                     htmlFor="email"
                     className="block text-base font-medium leading-6 text-white-900"
                   >
-                    Content
+                    Content:
                   </label>
                   <div className="mt-2">
                     <textarea
