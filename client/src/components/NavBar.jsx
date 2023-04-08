@@ -34,7 +34,7 @@ const publicOptions = (
         <NavUsername user={user} userInfo={userInfo} />
         <LoginButton user={user} handleLogOut={handleLogOut} />
         <li className='p-4 hover:text-purple-500'><Link to="/home">Home</Link></li>
-        <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li>
+        {/* <li className='p-4 hover:text-purple-500'><Link to="/plan">Plans</Link></li> */}
         <li className='p-4 hover:text-purple-500'><Link to="/about">About</Link></li>
       </ul>
     </div>
