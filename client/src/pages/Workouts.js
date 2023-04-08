@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Client from '../services/api'
 import { useParams } from 'react-router-dom'
@@ -34,17 +34,13 @@ const WorkoutsByPlanId = ({ user, userInfo }) => {
                 <img className="flex px-4" src={workout.image} alt="Workout" />
                 <h3>{workout.name}</h3>
                 <h4>{workout.muscleGroup}</h4>
-                <p className="font-medium">{workout.content}...</p>
               </div>
-              <button className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                Delete
-              </button>
             </div>
           </Link>
         ))}
       </div>
-      <button className="bg-[#512a71] w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-white justify-self-center">
-        <NavLink to="/addWorkout">Add Workout</NavLink>
+      <button className="bg-purple-700 font-bold hover:bg-purple-500 w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-white justify-self-center">
+        <Link to={`addWorkout/${id}`}>Add Workout</Link>
       </button>
     </div>
   ) : (
