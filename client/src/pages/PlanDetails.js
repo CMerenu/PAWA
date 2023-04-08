@@ -48,7 +48,7 @@ const PlanDetails = ({ user, userInfo }) => {
             <div className="py-12">
               <h1 className="text-3xl font-bold text-gray-900 mb-4"></h1>
               <div className="flex flex-col md:flex-row">
-                <div className="md:w-1/2 lg:w-1/2 mr-4 mb-4">
+                <div className="md:w-1/2 lg:w-1/3 mr-4 mb-4">
                   <img
                     src={planDetails?.image}
                     alt="post"
@@ -59,32 +59,46 @@ const PlanDetails = ({ user, userInfo }) => {
                       {planDetails?.name}
                     </p>
                   </div>
-                  <div>
-                    <div className="">
+                  <div className="mt-2 space-x-2">
+                    {/* <div className="">
                       <button
                         onClick={() => pushPlan(userInfo.id, planDetails.id)}
-                        className="bg-white p-2 rounded-sm shadow-md mt-4"
+                        className="bg-white p-2 rounded-lg shadow-md mt-4"
                       >
                         Add Plan!
                       </button>
-                    </div>
+                    </div> */}
                     <Link to={`/updatePlan/${id}`} key={id}>
-                      <button className="bg-white p-2 rounded-sm shadow-md mt-4 my-3">
+                      <button className="bg-white p-2 px-2 rounded-lg shadow-md mt-4 my-3 py-3">
                         Update Plan
                       </button>
                     </Link>
                     <button
-                      className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
+                      className="bg-red-700 p-2 text-white sp-2 rounded-lg shadow-md mt-4 my-3 px-2 py-3"
                       onClick={(event) => deletePlan(event, id)}
                     >
                       Delete
                     </button>
                   </div>
                 </div>
-                <div className="md:w-1/2 lg:w-2/3 mt-4 md:mt-0"></div>
+                <div className="md:w-3/4 lg:w-2/3 mt-4 md:mt-0 py-3 space-y-6">
+                  <div className="bg-white p-6 rounded-lg shadow-md  lg:w-2/3 mt-4 md:mt-0">
+                    <p className="text-gray-700 font-bold mb-2">
+                      Goal: {planDetails?.goal}
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-md  lg:w-2/3 mt-4 md:mt-0">
+                    <p className="text-gray-700 font-bold mb-2">
+                      Goal: {planDetails?.content}
+                    </p>
+                  </div>
+                  <button className="bg-purple-700 text-white p-6 rounded-lg shadow-md md:w-1/2 lg:w-2/3 mt-4 md:mt-0">
+                    Workouts
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* <div className="grid grid-cols-1 py-9 px-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <h2>Workouts!</h2>
               {workouts?.map((workout) => (
                 <Link to={`/workoutDetails/${workout.id}`} key={workout.id}>
@@ -104,7 +118,7 @@ const PlanDetails = ({ user, userInfo }) => {
                   </div>
                 </Link>
               ))}
-            </div>
+            </div> */}
           </div>
         )}
         <AddWork />

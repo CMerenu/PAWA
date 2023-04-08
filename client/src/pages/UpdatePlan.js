@@ -61,7 +61,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
 
   return (
     <div className="h-full">
-      <form id="form">
+      <form id="form" onSubmit={(e) => handleSubmit(e)}>
         <div className=" h-full py-7 space-y-12">
           <div className="border-b border-white-900/10 pb-12 grid w-screen place-items-center">
             <h2 className="text-base font-semibold leading-7 text-purple-900">
@@ -157,7 +157,7 @@ const UpdatePlan = ({ plans, user, userInfo }) => {
                   <button
                     type="submit"
                     // onSubmit={handleSubmit()}
-                    onSubmit={() => handleSubmit}
+                    // onSubmit={() => handleSubmit}
                     className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Save
