@@ -79,7 +79,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
 
                 <div className="col-span-5 sm:col-span-3">
                   <label className="block text-base font-medium leading-6 text-white-900">
-                    Muscle Group
+                    Muscle Group:
                   </label>
                   <div className="mt-2">
                     <textarea
