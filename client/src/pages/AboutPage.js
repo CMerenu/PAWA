@@ -1,4 +1,8 @@
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { AiFillGithub } from 'react-icons/ai'
+import { BsBriefcaseFill } from 'react-icons/bs'
+
 const AboutPage = () => {
   return (
     <div className="w-full h-screen py-[1rem] px-4 text-black">
@@ -22,7 +26,7 @@ const AboutPage = () => {
         <div className="w-full bg-white shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
           <img
             className="w-20 h-20 rounded-full mx-auto mt-[-3rem] bg-white"
-            src="https://media.licdn.com/dms/image/D5635AQG3J0DNw3WEiQ/profile-framedphoto-shrink_400_400/0/1664424248308?e=1678723200&v=beta&t=FnwtUB8A8ld5js3Sd1OxQ896kboYxM1HtDOzjAcTxD0"
+            src="https://media.licdn.com/https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png/image/D5635AQG3J0DNw3WEiQ/profile-framedphoto-shrink_400_400/0/1664424248308?e=1678723200&v=beta&t=FnwtUB8A8ld5js3Sd1OxQ896kboYxM1HtDOzjAcTxD0"
             alt="/"
           />
           <h2 className="text-xl font-bold text-center pt-3">
@@ -57,7 +61,6 @@ const AboutPage = () => {
               <Link to={'https://github.com/CMerenu'}>
                 <AiFillGithub size={40} />
               </Link>
-              {/* <BsBriefcaseFill size={40} /> */}
             </div>
           </div>
         </div>
