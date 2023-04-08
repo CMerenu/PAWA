@@ -46,7 +46,7 @@ const AddPlan = ({ user, userInfo }) => {
               Add Your Workout Plan!
             </h2>
             <p className="mt-1 text-sm leading-6 text-white">
-              Add a Workout P that people can follow!
+              Add a Workout Plan that people can follow!
             </p>
             <div className="overflow-hidden shadow sm:rounded-md w-1/2">
               <div className="bg-white px-4 py-3 sm:p-4">
