@@ -30,7 +30,7 @@ A Trello board was used to keep track of development progress and can be viewed 
 
 ##### **_Repo Links_**
 
-[GitHub Repo](https://github.com/CMerenu/Lakas)
+[GitHub Repo](https://github.com/CMerenu/PAWA)
 
 ### **_Development Diagrams_**
 
