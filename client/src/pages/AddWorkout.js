@@ -119,7 +119,7 @@ const AddWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                     htmlFor="street-address"
                     className="block text-sm font-medium leading-6 text-white-900"
                   >
-                    Image
+                    Image:
                   </label>
                   <div className="mt-2">
                     <textarea
