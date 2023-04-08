@@ -56,7 +56,7 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
     }
     await updateWorkout(updatedWorkout)
     // setFormValues(initialState)
-    navigate('/dashboard')
+    navigate(`/workouts/${workoutDetails.planId}`)
     alert('Workout has been updated!')
   }
   useEffect(() => {
@@ -74,21 +74,19 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
             <p className="mt-1 text-sm leading-6 text-white">
               Add a workout for people to follow!
             </p>
-            <div className="overflow-hidden w-2/3 justify-items-center shadow sm:rounded-md y">
-              <div className="bg-white px-4 py-2 sm:p-4 grid place-items-center w-41">
-                <div className="mt-5 grid grid-cols-4 gap-x-4 gap-y-8 sm:grid-cols-5">
-                  <div className="col-span-5 sm:col-span-3">
-                    <label
-                      htmlFor="first-name"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+            <div className="overflow-hidden shadow sm:rounded-md w-1/2">
+              <div className="bg-white px-4 py-3 sm:p-4">
+                <div className="gap-y-5  sm:grid-cols-5">
+                  <div className="m:col-span-3 py-3">
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Name
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         type="text"
                         name="name"
                         id="name"
+                        rows={2}
                         value={formValues.name}
                         onChange={handleChange}
                         autoComplete="name"
@@ -98,17 +96,15 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                   </div>
 
                   <div className="col-span-5 sm:col-span-3">
-                    <label
-                      htmlFor="last-name"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Muscle Group
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         type="text"
                         name="muscleGroup"
                         id="muscleGroup"
+                        rows={2}
                         value={formValues.muscleGroup}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
@@ -117,17 +113,15 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                   </div>
 
                   <div className="col-span-5 sm:col-span-3">
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Content
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         id="content"
                         name="content"
                         type="content"
+                        rows={5}
                         value={formValues.content}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-black-900 shadow-sm ring-1 ring-inset ring-purple-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
@@ -136,17 +130,15 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                   </div>
 
                   <div className="col-span-5 sm:col-span-3">
-                    <label
-                      htmlFor="street-address"
-                      className="block text-sm font-medium leading-6 text-white-900"
-                    >
+                    <label className="block text-base font-medium leading-6 text-white-900">
                       Image
                     </label>
                     <div className="mt-2">
-                      <input
+                      <textarea
                         type="text"
                         name="image"
                         id="image"
+                        rows={5}
                         value={formValues.image}
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 text-white-900 shadow-sm ring-1 ring-inset ring-white-300 placeholder:text-white-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -154,10 +146,10 @@ const UpdateWorkout = ({ setPlans, getAllPlans, user, userInfo, plans }) => {
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 flex items-center justify-end gap-x-6">
+                <div className="mt-6 flex items-center justify-center gap-x-6">
                   <button
                     type="submit"
-                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className="rounded-md bg-purple-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-purple-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Upload
                   </button>
