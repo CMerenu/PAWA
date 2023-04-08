@@ -37,7 +37,7 @@ const WorkoutDetails = ({ user, userInfo }) => {
   }, [user])
   if (workoutDetails)
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen ">
         {user && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="py-12">
@@ -50,62 +50,38 @@ const WorkoutDetails = ({ user, userInfo }) => {
                     className="w-full h-64 object-cover rounded-lg shadow-md"
                   />
                   <div className="bg-white p-6 rounded-lg shadow-md mt-4">
-                    <p className="text-gray-700 font-bold text-xl mb-2">
-                      Muscle: {workoutDetails.muscleGroup}
+                    <p className="text-gray-700 font-bold mb-2">
+                      <span className="text-purple-500">Name: </span>
+                      {workoutDetails?.name}
                     </p>
                   </div>
-                  <div>
-                    <Link to={`/updateWorkout/${id}`} key={workoutDetails.id}>
-                      <button className="bg-white p-2 rounded-sm shadow-md mt-4 my-3">
-                        Update Workout
+                  <div className="mt-2 space-x-2">
+                    <Link to={`/updateWorkout/${id}`} key={id}>
+                      <button className="bg-blue-700 p-2 text-white font-bold px-2 rounded-lg shadow-md mt-4 my-3 py-3 hover:bg-blue-500">
+                        Update
                       </button>
                     </Link>
                     <button
-                      className="bg-red-700 text-white sp-2 rounded-sm shadow-md mt-4 my-3"
+                      className="bg-red-700 p-2 font-bold text-white sp-2 rounded-lg shadow-md mt-4 my-3 px-2 py-3 hover:bg-red-500"
                       onClick={(event) => deleteWorkout(event, id)}
                     >
                       Delete
                     </button>
                   </div>
-                  <div className="bg-white p-6 rounded-lg shadow-md mt-4">
-                    <p className="text-gray-700 font-bold mb-2">
-                      {/* {planDetails.name} */}
-                    </p>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg shadow-md mt-4">
-                    <p className="text-gray-700 font-bold mb-2">
-                      {/* {workoutDetails.name} */}
-                    </p>
-                  </div>
                 </div>
-                <div className="md:w-1/2 lg:w-2/3 mt-4 md:mt-0">
-                  {/* <div className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold mb-4">Comments</h3>
-                  {workoutDetails.comments.map((comment) => (
-                    <div className="flex mb-4" key={comment.id}>
-                      <div className="flex-1">
-                        <p className="text-gray-700">{comment.content}</p>
-                        {user?.id === comment?.userId && (
-                          <div className="mt-2">
-                            <button
-                              className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded mr-2"
-                              // onClick={(e) => deleteComment(e, comment.id)}
-                            >
-                              Delete
-                            </button>
-                            <button
-                              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
-                              // onClick={(e) => clicky(e, comment.id)}
-                            >
-                              Update
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  ))}
-                  <div></div>
-                </div> */}
+                <div className="md:w-3/4 lg:w-2/3 mt-4 md:mt-0 py-3 space-y-5">
+                  <div className="bg-white p-6 rounded-lg shadow-md lg:w-2/3 mt-4 md:mt-0">
+                    <p className="text-gray-700 font-bold mb-2">
+                      <span className="text-purple-500">Muscle Group: </span>{' '}
+                      {workoutDetails?.muscleGroup}
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-md h-3/5 lg:w-2/3 mt-4 md:mt-0">
+                    <p className="text-gray-700 font-bold mb-2 ">
+                      <span className="text-purple-500">Description: </span>{' '}
+                      {workoutDetails?.content}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
