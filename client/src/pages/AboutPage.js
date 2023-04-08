@@ -6,9 +6,6 @@ import { BsBriefcaseFill } from 'react-icons/bs'
 const AboutPage = () => {
   return (
     <div className="w-full h-screen py-[1rem] px-4 text-black">
-      <div className="text-left text-4xl pb-[2rem]">
-        <h1 className="text-3xl text-black-500">About Page</h1>
-      </div>
       <div className="flex flex-col justify-center">
         <p className="text-purple-500 font-bold">THE DREAM BODY APP</p>
         <h1 className="md:text-4xl sm:text-3xl text-3xl font-bold py-2 text-purple">
@@ -26,7 +23,7 @@ const AboutPage = () => {
         <div className="w-full bg-white shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300">
           <img
             className="w-20 h-20 rounded-full mx-auto mt-[-3rem] bg-white"
-            src="https://media.licdn.com/https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png/image/D5635AQG3J0DNw3WEiQ/profile-framedphoto-shrink_400_400/0/1664424248308?e=1678723200&v=beta&t=FnwtUB8A8ld5js3Sd1OxQ896kboYxM1HtDOzjAcTxD0"
+            src="https://i.postimg.cc/yd7S605j/Screen-Shot-2023-04-08-at-1-34-16-AM.png"
             alt="/"
           />
           <h2 className="text-xl font-bold text-center pt-3">
